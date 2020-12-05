@@ -9,6 +9,7 @@ const carRoutes = require('./routes/carRoutes');
 const profileRoutes= require('./routes/profileRoutes');
 const myordersRoutes = require('./routes/myordersRoutes');
 const scheduledLater = require('./routes/scheduledLater');
+const leaderboard = require('./routes/leaderboard');
 const serviceAddonPromocode = require('./routes/service_addon_promocode');
 
 
@@ -23,7 +24,7 @@ mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCre
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/uploads/images',express.static('uploads'));
-app.use('/api',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater]);
+app.use('/api',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater,leaderboard]);
 
 
 

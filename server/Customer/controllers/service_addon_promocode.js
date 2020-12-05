@@ -1,7 +1,4 @@
-const service = require('../models/service');
-const addon = require('../models/addon');
-const promocode = require('../models/promocode');
-const servicePlan = require('../models/service');
+const { addon, promocode, servicePlan } = require('../models/readonlydata');
 
 module.exports.get_services = function(req,res){
     servicePlan.find({},function(err,docs){

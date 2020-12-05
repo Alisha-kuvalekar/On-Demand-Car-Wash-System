@@ -1,4 +1,4 @@
-const car = require('../models/car');
+const {car} = require('../models/readonlydata');
 
 module.exports.get_cars = function(req,res){
     car.find({status:'active'},function(err,docs){

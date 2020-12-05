@@ -9,6 +9,7 @@ const servicePlanRoutes = require('./routes/serviceplanRoutes');
 const promocodeRoutes = require('./routes/promocodeRoutes');
 const washerRoutes = require('./routes/washerRoutes');
 const addonRoutes = require('./routes/addonRoutes');
+const leaderboard = require('./routes/leaderboard');
 const authRoutes = require('./routes/authRoutes');
 const carRoutes = require('./routes/carRoutes');
 
@@ -21,7 +22,7 @@ mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCre
 //Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use('/api', [servicePlanRoutes, promocodeRoutes,addonRoutes, authRoutes,carRoutes,washerRoutes]);
+app.use('/api', [servicePlanRoutes, promocodeRoutes,addonRoutes, authRoutes,carRoutes,washerRoutes,leaderboard]);
 
 
 //Listen to port : default is 2000
