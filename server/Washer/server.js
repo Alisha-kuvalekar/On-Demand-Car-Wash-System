@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes= require('./routes/profileRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const myordersRoutes = require('./routes/myordersRoutes');
+const scheduledLater = require('./routes/scheduledlaterRoutes');
 
 const app = express();
 
@@ -18,7 +20,7 @@ mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCre
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/uploads/images',express.static('uploads'));
-app.use('/api',[authRoutes,profileRoutes,orderRoutes]);
+app.use('/api',[authRoutes,profileRoutes,orderRoutes,myordersRoutes,scheduledLater]);
 
 
 //Listen to port: Default is 4000
