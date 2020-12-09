@@ -52,7 +52,7 @@ const profileSchema = new mongoose.Schema({
     }
 });
 
-
+profileSchema.index({"addresses.location" : "2dsphere"});
 
 const washerDetails = mongoose.model('washerDetail',profileSchema);
 module.exports = washerDetails;

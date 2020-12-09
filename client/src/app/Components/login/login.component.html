@@ -1,0 +1,33 @@
+<span id="heading">LOGIN NOW!</span>
+<div class="loginForm">
+
+   
+    <!-- Form -->
+    <form #loginForm>
+        <div id="icon">
+          <fa-icon id="userIcon" [icon]="user"></fa-icon>
+        </div> 
+
+        <!-- EMAIL INPUT -->
+        <label for="email" class="form-label">Email address</label>
+        <div class=" input-group mb-3">
+          
+          <input type="email" class="form-control" id="email" name ="email" aria-describedby="emailHelp">
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon1"><fa-icon [icon] ="envelope" size="lg"></fa-icon></span>
+          </div>
+          <div id="emailHelp" class="form-text"></div>
+        </div>
+
+        <!-- PASSWORD INPUT -->
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group mb-3">
+          <input #pass type="password" class="form-control" id="password" name="password">
+          <div class="input-group-append">
+            <span class="input-group-text"><a #textpass (click)="showpass(pass,textpass)">Show</a></span>
+          </div>  
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button> &nbsp;
+    </form>
+</div>

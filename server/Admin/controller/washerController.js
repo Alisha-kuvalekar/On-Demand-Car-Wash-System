@@ -27,6 +27,7 @@ module.exports.update_washer = function(req,res){
             res.status(400).json(err);
         }
         else{
+            mail.acceptedMailToWasher(doc.email);
             res.status(201).send(doc);
         }
     })
@@ -40,7 +41,7 @@ module.exports.delete_washer = function(req,res){
             res.status(400).json(err);
         }
         else{
-            mail.mailToWasher(doc.email);
+            mail.rejectedMailToWasher(doc.email);
             res.status(201).send("Document deleted successfully");
         }
     });

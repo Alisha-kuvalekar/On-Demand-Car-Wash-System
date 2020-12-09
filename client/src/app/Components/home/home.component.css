@@ -1,0 +1,226 @@
+/************ banner image **********/
+
+.banner-img{
+    background-image: url('../../../assets/images/banner-img.jpg');
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+.heading{
+    font-size: 60px;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+/************* Carousel **************/
+#carouselExampleIndicators{
+    width: 70%;
+    height: 550px;
+    margin: auto;
+    margin-bottom:80px;
+    color: black;
+}
+
+hr{
+    width: 60%;
+    margin-right: 0;
+}
+.carousel-indicators li{
+    background-color:rgba(128, 128, 128, 0.733);
+}
+.carousel-indicators li.active{
+    background-color: black;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23007bff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+   }
+   
+.carousel-control-next-icon {
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23007bff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+
+.carousel-item{
+    padding: 30px;
+    align-items: center;
+}
+
+.carousel-item .info{
+    text-align: right;
+    padding-top: 150px
+}
+.carousel-item .info h2{
+    font-size: 45px;
+    font-family: 'Padauk', sans-serif;;
+}
+.carousel-item .info h3{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.carousel-item .info h4{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+}
+
+.carousel-item .icon{
+    text-align: center;
+    padding-top: 150px;
+    font-size: 8em;
+}
+.column {
+    float: left;
+    width: 50%;
+}
+  
+
+.rows:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Carousel media Queries */
+@media screen and (max-width: 520px) {
+    .column {
+        width: 100%;
+    }
+    .rows:after {
+        display: block
+    }
+    .carousel-item .info{
+        text-align: center;
+        padding: 10px;
+    }
+    .carousel-item .icon{
+        text-align: center;
+        padding: 10px;
+        font-size: 4em;
+    }
+    #carouselExampleIndicators{
+        height: 500px;
+    }
+    hr{
+        width: 40%;
+        margin: auto;
+    }
+      
+}
+  
+ 
+@media screen and ( min-width :521px) and (max-width: 1130px) {
+    .column {
+        width: 100%;
+    }
+    .rows:after {
+        display: block
+    }
+    .carousel-item .info{
+        text-align: center;
+        padding: 20px;
+    }
+    .carousel-item .icon{
+        text-align: center;
+        padding: 20px;
+        font-size: 7em;
+    }
+    #carouselExampleIndicators{
+        height: 600px;
+    }
+    hr{
+        width: 60%;
+        margin: auto;
+    }
+      
+}
+
+
+/* Gallery of cities styling */
+
+.gallery{
+    background-color:rgba(128, 128, 128, 0.062)
+}
+
+.card-footer{
+    text-align: center;
+    font-size: large;
+}
+
+#gallerybutton{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif ;
+    margin: auto;
+    padding: 30px;
+    font-size: 27px;
+}
+
+
+/* Washer part */
+
+#washer{
+    background-color: white;
+}
+
+#title{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#content{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    font-size: 26px;
+}
+
+#washerbutton span{
+    font-size: large;
+}
+
+#washerbutton{
+    text-align: center;
+    padding: 15px;
+}
+
+.headWasher{
+    font-size: 60px;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+.container-fluid{
+    padding: 35px;
+    text-align: center;
+}
+
+.container-fluid hr, #washer hr{
+    width: 75%;
+    margin:auto;
+}
+
+.col-sm{
+    padding: 25px;
+}
+.col-sm fa-icon{
+    font-size: 3em;
+}
+
+
+/* Contact info */
+
+.container{
+    padding-bottom: 50px;
+}
+
+.container .col-sm-5{
+    padding-top: 100px;
+}
+.container .row{
+    padding: 10px;
+    font-size: 18px;
+}

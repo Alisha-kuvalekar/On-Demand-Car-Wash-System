@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { isMobilePhone} = require('validator');
-const { schema } = require('../../Washer/models/order');
+
 
 //Connecting to orders database
 const dbURI="mongodb+srv://Customer:123cust@cluster0.gulvu.mongodb.net/orders?retryWrites=true&w=majority";

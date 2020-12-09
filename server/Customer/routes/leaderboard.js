@@ -13,3 +13,6 @@ router.get('/leaderboard', requireAuth ,function(req,res){
         }
     }).sort({noOfWashes : -1});
 });
+
+
+module.exports = router;

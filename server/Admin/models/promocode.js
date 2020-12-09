@@ -16,8 +16,7 @@ const promocodeSchema = new mongoose.Schema({
     },
     forServices:[{
         type: String,
-        lowercase: true,
-        required: [true, "Please enter the Service for which code will be applicable"]
+        lowercase: true
     }],
     expiresOn:{
         type: Date,

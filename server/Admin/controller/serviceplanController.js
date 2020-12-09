@@ -7,6 +7,7 @@ const handleErrors=(err)=>{
         name: '',
         time: '',
         cost: '',
+        description:'',
         status:''
     };
 
@@ -93,6 +94,18 @@ module.exports.delete_Service = function(req,res)
         }
         else{
             res.status(201).send("Document deleted successfully");
+        }
+    })
+};
+
+
+//Get active services from the database
+module.exports.get_Active_Services = function(req,res){
+    servicePlan.find({status: 'active'},function(err,docs){
+        if(err){
+            res.status(400).json(err);
+        }else {
+            res.status(201).send(docs);
         }
     })
 };

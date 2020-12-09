@@ -13,6 +13,9 @@ router.get('/services',  requireAuth, serviceplanController.get_Services);
 //get one service
 router.get('/services/:id', requireAuth, serviceplanController.get_Service);
 
+//get all active services from database
+router.get('/activeServices', requireAuth, serviceplanController.get_Active_Services);
+
 //create a service
 router.post('/services', requireAuth, urlencodedParser ,serviceplanController.post_Service);
 

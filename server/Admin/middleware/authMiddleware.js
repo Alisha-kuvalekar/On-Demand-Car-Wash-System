@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 //Used to jwt check token and guard pages
 const requireAuth = (req, res, next)=>{
-    const token = req.cookies.jwt;
+    const token = req.cookies.ajwt;
 
     //Check if JWT exists and is valid
     if(token){
@@ -12,6 +12,7 @@ const requireAuth = (req, res, next)=>{
                 console.log(err.message);
                 //redirect to login maybe
             }else{
+                console.log(token)
                 console.log(decodedToken);
                 next();
             }

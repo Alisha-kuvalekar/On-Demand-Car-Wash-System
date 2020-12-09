@@ -1,0 +1,212 @@
+<div class="main-body">
+
+    <!-- Banner image -->
+    <div class="banner-img">
+        <!-- <img src="assets\images\banner-img.jpg" alt=""> -->
+    </div>
+
+    <!-- Heading for carousel -->
+    <div class="heading">
+        <p>HOW IT <b>WORKS</b></p>
+    </div>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide bg-light" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active rows">
+              <div class="info column">
+                <h2>STEP 1</h2>
+                <h3>Choose a Package</h3>
+                <hr>   
+                <h4>Select interior, exterior, <br> mini detail or full detail service</h4>
+              </div> 
+              <div class="icon column">
+                <fa-icon [icon]= "boxopenIcon" ></fa-icon>
+            </div>
+          </div>
+          <div class="carousel-item rows">
+            <div class="info column">
+                <h2>STEP 2</h2>
+                <h3>Washer on the way</h3>
+                <hr> 
+                <h4>Our server locates and assigns a<br>nearby mobile car washer.</h4>
+            </div>
+            <div class="icon column">
+                <fa-icon [icon]= "fastShippingIcon" ></fa-icon>
+            </div> 
+          </div>
+          <div class="carousel-item rows">
+            <div class="info column">
+                <h2>STEP 3</h2>
+                <h3>Wash in Progess</h3>
+                <hr>  
+                <h4>A fully equipped washer arrives at<br>your location to detail you car <br> to perfection.</h4>
+            </div> 
+            <div class="icon column">
+                <fa-icon [icon]= "dropIcon"></fa-icon>
+            </div>
+          </div>
+          <div class="carousel-item rows">
+            <div class="info column">
+                <h2>STEP 4</h2>
+                <h3>Wash Complete</h3>
+                <hr> 
+                <h4>Users pay, rate and tip <br> after the wash.</h4>
+            </div> 
+            <div class="icon column">
+                <fa-icon [icon]= "clipboardIcon" ></fa-icon>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Cities we are in (Image Gallery) -->
+    <div class="gallery">
+        <!-- Heading for Gallery -->
+        <div class="heading">
+            <p><b>FIND US</b> HERE</p>
+        </div>
+        <!-- Row 1 -->
+        <div class="row" style="width: 85%; margin: auto;">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../../assets/images/city1.jpg" alt="city1" width="100%" height="330">
+                    <div class="card-footer"><span>HYDERABAD</span></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../../assets/images/city2.jpg" alt="city1" width="100%" height="330">
+                    <div class="card-footer"><span>KOLKATA</span></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../../assets/images/city3.jpg" alt="city1" width="100%" height="330">
+                    <div class="card-footer"><span>CHENNAI</span></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Row 2 -->
+        <div class="row" style="width: 85%; margin: auto;">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../../assets/images/city4.jpg" alt="city1" width="100%" height="330">
+                    <div class="card-footer"><span>DELHI</span></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../../assets/images/city5.jpg" alt="city1" width="100%" height="330">
+                    <div class="card-footer"><span>GOA</span></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../../assets/images/city6.jpg" alt="city1" width="100%" height="330">
+                    <div class="card-footer"><span>MUMBAI</span></div>
+                </div>
+            </div>
+
+        <!-- Button for signup -->
+        <div id="gallerybutton"> 
+            <span>And many more... Find out by signing up now!</span> <br> <br>
+            <button type="button" class="btn btn-primary btn-lg">SIGN UP</button>
+        </div>
+        
+    </div>
+
+    <!-- Washer Details -->
+    <div id="washer">
+        <!-- Heading -->
+        <div class="headWasher">
+            <p>BECOME A <b>WASHER</b><br>
+                <span id="title"> Be your own boss</span></p>
+            
+        </div>
+        <hr>
+        <!-- Details -->
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm my-auto" >
+                <!-- <b id="title"> Be your own boss</b> <br> <br> -->
+                <span id="content">Operate your own business through us. <br> You decide where,
+                    <br> when and how much you work. <br>
+                    Be a part of the team.
+                </span> 
+              </div>
+                <div class="col-sm">
+                    <div class="row">
+                        <div class="col-sm">
+                            <fa-icon [icon] = "rupeeIcon" style="color: green;"></fa-icon>
+                            <h2>Earn upto 10k per week</h2>
+                            <span>Washer receives a car wash request approximately every 30 minutes. If you want to work, there will be work!</span>
+                        </div>
+                        <div class="col-sm">
+                            <fa-icon [icon] = "clockIcon" style="color: rgb(126, 117, 117);"></fa-icon>
+                            <h2>Choose your own hours</h2>
+                            <span>We’ll only send you job requests when you’re “online.” Your schedule is your call.</span>
+                        </div>   
+                    </div>
+                    <br> <br>
+                    <div class="row">
+                        <div class="col-sm">
+                            <fa-icon [icon] = "walletIcon" style="color:brown;"></fa-icon>
+                            <h2>Get paidfast</h2>
+                            <span>All payments are automatically submitted through the app, and deposited into your bank account. (Tips too!)</span>
+                        </div>
+                        <div class="col-sm">
+                            <fa-icon [icon] = "growthIcon" style="color: orange;"></fa-icon>
+                            <h2>Grow your business</h2>
+                            <span>Grow your business alongside us.</span>
+                        </div>   
+                    </div>
+               </div>
+               
+            </div>
+            <br>
+            <hr>
+            <br> <br>
+            <div id="washerbutton"> 
+                <span>Join the network now! Click on the below button to register.</span> <br> <br>
+                <button type="button" class="btn btn-dark btn-lg">REGISTER</button>
+            </div>
+        </div> 
+        
+    </div>
+
+    <!-- Contact info -->
+    <div class="container">
+        <div class="heading">
+            <p>Contact Us</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+              <p>Contact us and we'll get back to you within 24 hours.</p>
+              <p> <fa-icon [icon]="marker"></fa-icon>&nbsp; MUMBAI, IN</p>
+              <p><fa-icon [icon]="mobile"></fa-icon>&nbsp; +91 1234567890</p>
+              <p><fa-icon [icon]="envelope"></fa-icon>&nbsp; carwash@company.com</p>
+            </div>
+            <div class="col-sm-7 map">
+                <img src="../../../assets/images/map.jpg" alt="" width="800" height="500">
+            </div>
+          </div>
+    </div>
+    
+
+</div>

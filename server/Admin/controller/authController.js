@@ -52,7 +52,7 @@ module.exports.post_signup = async function(req,res){
     try {
         const user = await Admin.create({email, password});
         const token = createToken(user._id); 
-        res.cookie('jwt',token, {httpOnly: true, maxAge : maxAge*1000}); 
+        res.cookie('ajwt',token, {httpOnly: true, maxAge : maxAge*1000}); 
         res.status(201).send(user._id);
     } catch (error) {
         const err= handleErrors(error);
@@ -65,7 +65,7 @@ module.exports.post_signup = async function(req,res){
 //Login
 module.exports.get_login = function(req,res){
     //redirect to login page from angular
-    res.send("this is the login page");
+    res.send("this is the login page of admin");
 }
 
 module.exports.post_login = async function(req,res){
@@ -73,7 +73,7 @@ module.exports.post_login = async function(req,res){
     try {
       const user = await Admin.login(email, password);
       const token = createToken(user._id); 
-      res.cookie('jwt',token, {httpOnly: true, maxAge : maxAge*1000}); 
+      res.cookie('ajwt',token, {httpOnly: true, maxAge : maxAge*1000}); 
       res.status(201).send(user._id);
     } catch (error) {
         const err = handleErrors(error);
@@ -83,7 +83,7 @@ module.exports.post_login = async function(req,res){
 
 //Log out
 module.exports.get_logout = function(req,res){
-    res.cookie('jwt','',{maxAge :1});
+    res.cookie('ajwt','',{maxAge :1});
     //redirect to home page 
     //...
     res.send("logged out")

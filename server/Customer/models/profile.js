@@ -60,7 +60,7 @@ const profileSchema = new mongoose.Schema({
     }]
 });
 
-
+profileSchema.index({"addresses.location" : "2dsphere"});
 
 const customerDetails = mongoose.model('customerdetail',profileSchema);
 module.exports = customerDetails;

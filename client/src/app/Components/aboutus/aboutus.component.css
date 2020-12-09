@@ -1,0 +1,35 @@
+.banner-img{
+    background-image: url('../../../assets/images/aboutusbanner.jpg');
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-size: cover;
+    opacity: 0.75;
+}
+
+.container-fluid {
+    padding: 60px 50px;
+}
+
+h2{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+#chart{
+    font-size: 8em;
+    color: #007bff8e;
+   
+}
+
+.section2{
+    background-color:rgba(128, 128, 128, 0.062);
+}
+
+.section2 .col-sm-4{
+    padding: 20px;
+}
+
+.section2 fa-icon{
+    font-size: 2em;
+}

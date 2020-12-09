@@ -17,6 +17,10 @@ const serviceplanSchema = new mongoose.Schema({
         min: 1,
         required: [true, "Please enter the cost of the service"]
     },
+    description:{
+        type: String,
+        required: [true, "Please enter the description"]
+    },
     status:{
         type:String,
         lowercase: true,
