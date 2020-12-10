@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
+const cors = require('cors');
 
 //Importing routes
 const servicePlanRoutes = require('./routes/serviceplanRoutes');
@@ -22,6 +22,7 @@ mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCre
 //Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
 app.use('/api', [servicePlanRoutes, promocodeRoutes,addonRoutes, authRoutes,carRoutes,washerRoutes,leaderboard]);
 
 

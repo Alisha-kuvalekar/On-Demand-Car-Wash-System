@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const authRoutes = require('./routes/authRoutes');
 const orderRoutes = require('./routes/orderRoutes');
@@ -23,6 +24,7 @@ mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCre
 //middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
 app.use('/uploads/images',express.static('uploads'));
 app.use('/api',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater,leaderboard]);
 
