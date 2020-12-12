@@ -11,6 +11,7 @@ const profileRoutes= require('./routes/profileRoutes');
 const myordersRoutes = require('./routes/myordersRoutes');
 const scheduledLater = require('./routes/scheduledLater');
 const leaderboard = require('./routes/leaderboard');
+const washerRoute = require('./routes/findWashers');
 const serviceAddonPromocode = require('./routes/service_addon_promocode');
 
 
@@ -26,7 +27,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 app.use('/uploads/images',express.static('uploads'));
-app.use('/api',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater,leaderboard]);
+app.use('/api',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater,leaderboard, washerRoute]);
 
 
 

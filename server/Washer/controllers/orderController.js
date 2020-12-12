@@ -1,7 +1,7 @@
 const order = require('../models/order');
 
 module.exports.get_orders = function(req,res){
-    const id = req.params.washerId;
+    const id = req.userId;
     order.find({"washerDetails.washerId": id},function(err,doc){
         if(err){
             res.status(400).json(err);

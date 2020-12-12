@@ -1,1 +1,32 @@
-<p>scheduled-order works!</p>
+<h1 class="heading">Scheduled Washes</h1>
+<div *ngIf="scheduled.length[0]==null" class="text-center">
+  <h5>No scheduled Washes</h5>
+</div>
+<table *ngIf="scheduled.length[0]!=null" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Package</th>
+        <th scope="col">Addon</th>
+        <th scope="col">Car</th>
+        <th scope="col">Date & Time</th>
+        <th scope="col">Address</th>
+        <th scope="col">Washer Name</th>
+        <th scope="col">Total Cost</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let s of scheduled[0]; let i=index;">
+        <th scope="row">{{i}}</th>
+        <td>{{s.package}}</td>
+        <td>{{s.addOn}}</td>
+        <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
+        <td>{{s.dateTime}}</td>
+        <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
+        <td>{{s.washerDetails.name}}</td>
+        <td>{{s.totalCost}}</td>
+        <td><button class="btn btn-primary" (click)="cancelOrder(s)" >Cancel Order</button></td>
+      </tr>
+    </tbody>
+  </table>

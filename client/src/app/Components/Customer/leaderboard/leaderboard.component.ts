@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faTint } from '@fortawesome/free-solid-svg-icons';
+import { LeaderboardService } from 'src/app/Services/Customer/leaderboard/leaderboard.service';
 
 @Component({
   selector: 'app-leaderboard',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaderboardComponent implements OnInit {
 
-  constructor() { }
+  dropIcon = faTint;
+  leaderboardList =[];
+  constructor(private _leaderboardService : LeaderboardService) { }
 
   ngOnInit(): void {
+    this._leaderboardService.getLeaderBoard()
+      .subscribe(
+        res => this.leaderboardList.push(res),
+        err => console.log(err)
+      )
+
   }
 
 }

@@ -8,7 +8,7 @@ const orderConn =mongoose.createConnection( dbURI,{useNewUrlParser: true, useUni
 
 const orderSchema = new mongoose.Schema({
     userDetails :{
-        userId:{
+        userId:{ 
             type: String,
             required: [true,"please enter customerId"]
         },
@@ -24,14 +24,24 @@ const orderSchema = new mongoose.Schema({
         }
     },
     address:{
-        type: {
-            type: String, 
-            enum: ['Point'], 
-            required: true
+        country:{
+            type:String,
+            lowercase: true,
+            required :[true,"Please enter the country name"]
         },
-          coordinates: {
-            type: [Number],
-            required: true
+        city:{
+            type:String,
+            lowercase: true,
+            required :[true,"Please enter the city name"]
+        },
+        address:{
+            type:String,
+            lowercase: true,
+            required :[true,"Please enter the address"]
+        },
+        zipcode:{
+            type: Number,
+            required: [true, "Please enter a zipcode"]
         }
     },
     package :{
@@ -39,10 +49,10 @@ const orderSchema = new mongoose.Schema({
         lowercase:true,
         required: [true, "Please enter name of the service"]
     },
-    addOns:[{
+    addOn:{
         type:String,
         lowercase:true
-    }],
+    },
     carInfo:{
         carName:{
             type:String,

@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit {
       .subscribe(
         res => {
           localStorage.setItem('cjwt',res.token)
-          this.router.navigate(['/customerDashboard'])
+          this.router.navigate(['/customerDashboard/customerHome'])
         },
         err => {this.emailError =err.error.email, this.passwordError = err.error.password}
       )

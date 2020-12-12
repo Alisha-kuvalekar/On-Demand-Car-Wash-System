@@ -1,7 +1,7 @@
 const order = require('../models/order');
 
 module.exports.get_scheduled_orders = function(req,res){
-    const id = req.params.id;
+    const id = req.userId;
     order.find({$and:[{"washerDetails.washerId":id},{isScheduledLater:true}]},function(err,docs){
         if(err){
             res.status(400).json(err);

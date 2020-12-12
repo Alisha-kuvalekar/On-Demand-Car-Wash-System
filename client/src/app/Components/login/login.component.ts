@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {
           localStorage.setItem('cjwt',res.token)
-          this.router.navigate(['/customerDashboard'])
+          this.router.navigate(['/customerDashboard/customerHome'])
         },
         err => {this.emailError =err.error.email, this.passwordError = err.error.password}
       )
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {
           localStorage.setItem('wjwt',res.token)
-          this.router.navigate(['/washerDashboard'])
+          this.router.navigate(['/washerDashboard/washerHome'])
         },
         err => {this.emailError =err.error.email, this.passwordError = err.error.password}
       )

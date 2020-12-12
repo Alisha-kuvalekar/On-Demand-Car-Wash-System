@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const { isMobilePhone } = require('validator');
 
 const profileSchema = new mongoose.Schema({
+    userId:{
+        type: String,
+        unique:true,
+        required: [true,"please enter washerId"]
+    },
     name:{
         type:String,
         lowercase:true,
@@ -14,11 +19,7 @@ const profileSchema = new mongoose.Schema({
         unique: true,
         validate:[isMobilePhone,'en-IN',"Enter a valid mobile number"]
     },
-    profilePicture:{
-        type:String,
-        required: [true, "Please upload your picture"]
-    },
-    addresses:[{
+    addresses:{
         country:{
             type:String,
             lowercase: true,
@@ -38,7 +39,7 @@ const profileSchema = new mongoose.Schema({
             type: Number,
             required: [true, "Please enter a zipcode"]
         }
-    }],
+    },
     noOfWashes:{
         type:Number,
         default: 0
@@ -46,5 +47,5 @@ const profileSchema = new mongoose.Schema({
 });
 
 
-const washerDetails = mongoose.model('washerDetail',profileSchema);
+const washerDetails = mongoose.model('washerdetail',profileSchema);
 module.exports = washerDetails;

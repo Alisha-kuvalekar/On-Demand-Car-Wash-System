@@ -1,1 +1,54 @@
-<p>order works!</p>
+<div class="order">
+    <h1 class="heading">ORDER A WASH</h1>
+    <form #orderForm>
+
+        <!-- Select a plan -->
+        <div class="form-group">
+            <label for="package">1. Select a serviceplan</label>
+            <select  name="package" id="plans" class="form-control" [(ngModel)]="service" required>
+                <option selected aria-readonly="true">Choose a package</option>
+                <option *ngFor ="let plan of plans[0]">
+                    {{plan.name | uppercase}},{{plan.cost}}
+                </option>
+            </select>
+        </div>
+        <br>
+        <!-- Select addons if required -->
+        <div class="form-group">
+            <label for="addOns">2. Select Addon(s)</label> <br>
+            <button class="btn btn-info" (click)="findAddons(service)">View addons for "{{service}}"</button> <br> <br>
+            <select *ngIf="isVisible" class="form-control"  name="addOns" id="addOns" [(ngModel)]="addon">
+                <option selected aria-readonly="true">Select addon(s)</option>
+                <option *ngFor="let addon of addOns[0]" >
+                    {{addon.name | uppercase}},{{addon.cost}}
+                </option>
+            </select>
+        </div>
+
+        <!-- select date and time -->
+        <div class="form-group">
+            <label for="dateTime">3. Select Date and Time</label>
+            <input class="form-control" type="datetime-local" id="dateTime" name="dateTime" ngModel required>
+        </div>
+        <br>
+        <!-- Select washer -->
+        <div class="form-group">
+            <label for="washer">4. Select washer</label>
+            <select class="form-control" name="washer" id="washer" ngModel required>
+                <option selected aria-readonly="true">Choose a Washer</option>
+                <option *ngFor="let washer of washersList[0]">
+                    {{washer.name}}, {{washer.addresses.city}}, {{washer.addresses.country}}
+                </option>
+            </select>
+        </div>
+
+        <!-- instructions to washer -->
+        <div class="form-group">
+            <label for="instruction">5. Instruction to Washer(if any)</label>
+            <textarea class="form-control" id="instruction" name="instruction" rows="3" ngModel ></textarea>
+        </div>
+
+        <button  class="btn btn-primary">SUBMIT</button>
+       
+    </form>
+</div>

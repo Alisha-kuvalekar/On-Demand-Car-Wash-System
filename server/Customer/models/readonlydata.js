@@ -16,6 +16,6 @@ const promocode = conn.model('promocode',new mongoose.Schema({}));
 const servicePlan = conn.model('servicePlan',new mongoose.Schema({}));
 
 //from washer details collection
-const washerDetails = washerconn.model('washerDetail',new mongoose.Schema({}))
+const washerDetails = washerconn.model('washerdetail',new mongoose.Schema({}))
 
 module.exports = { car,addon,promocode, servicePlan, washerDetails};

@@ -1,0 +1,18 @@
+/* Heading */
+.heading{
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+form{
+    width: 70%;
+    margin: auto;
+}
+
+label{
+    font-size: 22px;
+    color: #007bff;
+}

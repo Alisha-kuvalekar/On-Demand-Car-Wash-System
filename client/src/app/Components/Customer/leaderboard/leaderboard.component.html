@@ -1,1 +1,21 @@
-<p>leaderboard works!</p>
+<h1 class="heading">Leaderboard</h1>
+<div class="table-responsive mx-auto">
+    <table class="table table-striped table-hover mx-auto w-auto">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">City</th>
+              <th scope="col">No.of Washes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of leaderboardList[0]; let i=index;">
+              <th scope="row">{{i}}</th>
+              <td > {{user.name}} </td>
+              <td> {{user.addresses.city}} </td>
+              <td> {{user.noOfWashes}} <fa-icon [icon]="dropIcon"></fa-icon> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
