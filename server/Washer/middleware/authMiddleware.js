@@ -3,9 +3,22 @@ const jwt = require('jsonwebtoken');
 
 //Used to jwt check token and guard pages
 const requireAuth = (req, res, next)=>{
-    const token = req.cookies.jwt;
+    if(!req.headers.authorization){
+        return res.status(401).send("Unauthorized Request")
+    }
+    let token = req.headers.authorization.split(' ')[1];
+    if(token === 'null'){
+        return res.status(401).send("Unauthorized Request")
+    }
+    let payload = jwt.verify(token,'A strong secret token here')
+    if(!payload){
+        return res.status(401).send("Unauthorized Request")
+    }
+    req.userId = payload.id;
+    next();
 
-    //Check if JWT exists and is valid
+
+   /*  //Check if JWT exists and is valid
     if(token){
         jwt.verify(token,'A strong secret token here',(err, decodedToken)=>{
             if(err){
@@ -21,7 +34,7 @@ const requireAuth = (req, res, next)=>{
         //redirect to something maybe login
         res.redirect('/api/login');
     }
-
+ */
 };
 
 module.exports ={ requireAuth }; 

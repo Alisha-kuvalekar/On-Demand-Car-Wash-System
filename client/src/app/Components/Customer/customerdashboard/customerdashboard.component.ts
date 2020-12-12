@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import * as $ from 'jquery';
+
+import { faBars} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-customerdashboard',
@@ -9,13 +10,15 @@ import * as $ from 'jquery';
 })
 export class CustomerdashboardComponent implements OnInit {
 
+  status: boolean = false;
+  barsIcon = faBars;
   constructor(private router : Router) { }
 
   ngOnInit(): void {
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
+
   }
 
+  toggleClass(){
+    this.status =!this.status;
+  }
 }

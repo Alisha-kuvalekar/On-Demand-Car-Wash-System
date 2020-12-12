@@ -8,7 +8,16 @@ const authAxios = axios.create({
         Authorization: `Bearer ${accessToken}`
     }
 }) */
-
+module.exports.get_ui_services = async function(req,res){
+    servicePlan.find({status: 'active'},function(err,docs){
+        if(err){
+            res.status(400).json(err);
+        }else {
+            res.status(201).send(docs);
+        }
+    })
+    
+};
 
 module.exports.get_services = async function(req,res){
     servicePlan.find({status: 'active'},function(err,docs){

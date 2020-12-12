@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { faCar } from '@fortawesome/free-solid-svg-icons';
+import { AuthServiceService } from 'src/app/Services/Customer/auth/auth-service.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { faCar } from '@fortawesome/free-solid-svg-icons';
 export class HeaderComponent implements OnInit {
 
   faCarIcon = faCar;
-  constructor(private router : Router) { };
+  constructor(private router : Router, public  _auth : AuthServiceService) { };
 
   ngOnInit(): void {
   }

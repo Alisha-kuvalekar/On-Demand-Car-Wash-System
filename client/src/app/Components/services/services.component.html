@@ -11,16 +11,16 @@
 
     <!-- serviceplans -->
     <div class="container">
-        <div class="item">
+        <div class="item" *ngFor="let service of services">
             <div class="title bg-primary">
-                <p>Basic wash</p>
+                <p>{{service.name | uppercase}}</p>
             </div>
             <div class="body">
-                <p>sdfd</p>
-                <span class="time">Estimated Time : </span>
+                <p> {{service.description}} </p>
+                <span class="time"> <b> Estimated Time : {{service.time}} minutes</b></span>
             </div>
             <div class="foot">
-                <span class="cost text-primary">Cost : <b>₹</b></span>
+                <span class="cost text-primary">Cost : <b>₹</b>{{service.cost}}</span>
             </div>
         </div>
         

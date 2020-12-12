@@ -1,0 +1,22 @@
+.profile{
+    padding: 15px;
+    margin: 20px;
+}
+
+.heading{
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+.message{
+    background-color: rgb(9, 151, 9);
+    padding: 7px;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+  }

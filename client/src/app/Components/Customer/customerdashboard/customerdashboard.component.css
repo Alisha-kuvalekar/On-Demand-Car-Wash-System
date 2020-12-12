@@ -1,5 +1,10 @@
+.row{
+  padding-left: -15px;
+  padding-right: -15px;
+}
+
 #sidebar-wrapper {
-    min-height: 100vh;
+    min-height: 80vh;
     margin-left: -15rem;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;

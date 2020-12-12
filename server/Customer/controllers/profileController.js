@@ -6,14 +6,19 @@ const handleErrors=(err)=>{
     let error= {};
 
     //duplicate error code
+    if(err.code === 11000  && err.message.includes('userId_1 dup key'))
+    { 
+        error.userId ='Entered userId is already registered';
+        return error;
+    }
     if(err.code === 11000  && err.message.includes('name_1 dup key'))
     { 
-        error.email ='Entered name is already registered';
+        error.name ='Entered name is already registered';
         return error;
     }
     if(err.code === 11000  && err.message.includes('mobile_1 dup key'))
     {
-        error.email ='Entered mobile number is already registered';
+        error.mobile ='Entered mobile number is already registered';
         return error;
     }
       
@@ -38,10 +43,11 @@ module.exports.get_profile= function(req,res){
 //post the user details
 module.exports.post_profile= async function(req,res){
    const details = req.body;
+   details.userId = req.userId;
    console.log(req.body);
     try {
         const user = await customerDetails.create(details);
-        res.status(201).send(user);
+        res.status(201).send(user._id);
     } catch (error) {
         console.log(error);
         const err = handleErrors(error);
@@ -51,22 +57,28 @@ module.exports.post_profile= async function(req,res){
 
 //fetch the document of customer by Id 
 module.exports.get_specific_profile = async function(req,res){
-    const _id = req.params.id;
-    const customer = await customerDetails.findById(_id).exec();
-    res.status(201).json(customer);
+    const _id = req.userId;
+    customerDetails.find({"userId" : _id}, function(err,result){
+        if(err){
+            res.status(401).send(err);
+        }
+        else{
+            res.status(201).json(result)
+        }
+    })
 }
 
 
 //find document by Id and update the details
 module.exports.update_profile= async function(req,res){
-    const _id = req.params.id;
+    const _id = req.userId;
     const newData = req.body;
-    customerDetails.findByIdAndUpdate(_id,newData, {new:true} ,function(err,result){
+    customerDetails.findOneAndUpdate({"userId" : _id}, newData,  {new:true} ,function(err,result){
         if(err){
-            console.log(err);
-            res.send(err);
+            const error = handleErrors(err);
+            res.status(400).json(error);
         }else {
-            res.send(result);
+            res.status(201).json(result);
         }
     })
 }

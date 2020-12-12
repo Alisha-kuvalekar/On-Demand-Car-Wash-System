@@ -18,7 +18,7 @@ const app = express();
 
 //Connect to Customers Database
 const dbURI="mongodb+srv://Customer:123cust@cluster0.gulvu.mongodb.net/customers?retryWrites=true&w=majority";
-mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
 
 
 //middleware

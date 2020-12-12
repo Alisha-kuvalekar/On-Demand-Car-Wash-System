@@ -24,8 +24,9 @@
   
       <!-- Login and Signup buttons -->
       <form class="form-inline my-2 my-lg-0">
-        <a class="btn " href="#" role="button" routerLink ='/signup'>SIGN UP</a>
-        <a class="btn " href="#" role="button" routerLink ='/login'>LOGIN</a>
+        <a class="btn " *ngIf="!_auth.loggedIn()" href="#" role="button" routerLink ='/signup'>SIGN UP</a>
+        <a class="btn " *ngIf="!_auth.loggedIn()" href="#" role="button" routerLink ='/login'>LOGIN</a>
+        <a class="btn " *ngIf="_auth.loggedIn()" href="#" role="button" (click)="_auth.logoutCustomer()">LOGOUT</a>
       </form>
     </div>
   </nav>

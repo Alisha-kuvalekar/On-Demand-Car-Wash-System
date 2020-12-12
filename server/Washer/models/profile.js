@@ -34,16 +34,9 @@ const profileSchema = new mongoose.Schema({
             lowercase: true,
             required :[true,"Please enter the address"]
         },
-        location:{
-            type: {
-                type: String, 
-                enum: ['Point'], 
-                required: true
-            },
-            coordinates: {
-                type: [Number],
-                required: true
-            }
+        zipcode:{
+            type: Number,
+            required: [true, "Please enter a zipcode"]
         }
     }],
     noOfWashes:{
@@ -52,7 +45,6 @@ const profileSchema = new mongoose.Schema({
     }
 });
 
-profileSchema.index({"addresses.location" : "2dsphere"});
 
 const washerDetails = mongoose.model('washerDetail',profileSchema);
 module.exports = washerDetails;
