@@ -41,4 +41,9 @@ export class PlanManagementService {
   deleteService(id) : Observable <any> {
     return this.http.delete(`${adminBaseURL}/services/${id}`)
   }
+
+  /* Get count of active services */
+  countServices(): Observable <any>{
+    return this.http.get(`${adminBaseURL}/activeCount`);
+  }
 }

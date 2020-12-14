@@ -1,4 +1,4 @@
-const washer = require('../models/washer');
+const {washer, washerDetails} = require('../models/washer');
 const mail = require('../services/mail');
 module.exports.get_all_washers = function(req, res){
     washer.find({},function(err,docs){
@@ -47,3 +47,14 @@ module.exports.delete_washer = function(req,res){
     });
     
 };
+
+
+module.exports.count_washers = function(req, res){
+    washer.count({isApproved : 'true'}, function(err, result){
+        if(err){
+            res.status(400).json(err)
+        } else {
+            res.status(201).json(result)
+        }
+    })
+}

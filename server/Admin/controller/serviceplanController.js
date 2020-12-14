@@ -111,3 +111,14 @@ module.exports.get_Active_Services = function(req,res){
         }
     })
 };
+
+//get count of active services
+module.exports.get_Count_Active_Services = function(req,res){
+    servicePlan.count({status: 'active'}, function(err,count){
+        if(err){
+            res.status(400).json(err)
+        } else {
+            res.status(201).json(count)
+        }
+    })
+}

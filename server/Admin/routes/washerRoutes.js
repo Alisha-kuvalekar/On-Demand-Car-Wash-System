@@ -21,4 +21,7 @@ router.put('/washer/:id', requireAuth, urlencodedparser, washerController.update
 //Reject(delete) washer
 router.delete('/washer/:id', requireAuth, washerController.delete_washer);
 
+//count washers
+router.get('/countWashers', requireAuth, washerController.count_washers);
+
 module.exports = router;

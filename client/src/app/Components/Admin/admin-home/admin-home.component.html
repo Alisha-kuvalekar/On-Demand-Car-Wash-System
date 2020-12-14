@@ -1,10 +1,29 @@
 <div class="wrapper">
-  <p class="heading"> WELCOME</p>
-  
+ 
+
+  <div class="container ">
+    <div class="item ">
+      <p class="title ">CUSTOMERS</p>
+      <p class="count"> {{customersCount}} </p>
+    </div>
+    <div class="item">
+      <p class="title ">WASHERS</p>
+      <p class="count"> {{washersCount}} </p>
+    </div>
+    <div class="item">
+      <p class="title">CMP. ORDERS</p>
+      <p class="count">{{completedordersCount}}</p>
+    </div>
+    <div class="item">
+      <p class="title ">ACTIVE SERVICES</p>
+      <p class="count">{{activeServicesCount}}</p>
+    </div>
+  </div>
+  <br>
   <div class="content">
     <ul>
         <li>Admin Dashboard with features to add new plans, addons, edit them and remove them as per business goals.</li> <br>
-        <li>Approve Washers as per demand and quality. </li> <br> <br>
+        <li>Approve Washers as per demand and quality. </li>  <br> <br>
         <button class="btn btn-secondary" routerLink="../washerApproval">Approve Washers</button> &nbsp;
         <button class="btn btn-info" routerLink="../adminPlans">Manage Plans</button>
     </ul>

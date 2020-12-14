@@ -20,7 +20,7 @@
         <th scope="row">{{i+1}}</th>
         <td> {{addon.name | uppercase}} </td>
         <td> {{addon.forServices}} </td>
-        <td> {{addon.cost}} </td>
+        <td> ₹{{addon.cost}} </td>
         <td> {{addon.status | uppercase}} </td>
         <td>
           <button class="btn btn-warning" [routerLink]="['../editAddon', addon._id]">EDIT</button> &nbsp;

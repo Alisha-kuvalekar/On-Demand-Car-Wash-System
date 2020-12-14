@@ -12,6 +12,8 @@ const addonRoutes = require('./routes/addonRoutes');
 const leaderboard = require('./routes/leaderboard');
 const authRoutes = require('./routes/authRoutes');
 const carRoutes = require('./routes/carRoutes');
+const customerRoutes = require('./routes/customerRoute');
+const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
@@ -23,7 +25,7 @@ mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCre
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-app.use('/api', [servicePlanRoutes, promocodeRoutes,addonRoutes, authRoutes,carRoutes,washerRoutes,leaderboard]);
+app.use('/api', [servicePlanRoutes, promocodeRoutes,addonRoutes, authRoutes,carRoutes,washerRoutes,leaderboard, customerRoutes, orderRoutes]);
 
 
 //Listen to port : default is 2000

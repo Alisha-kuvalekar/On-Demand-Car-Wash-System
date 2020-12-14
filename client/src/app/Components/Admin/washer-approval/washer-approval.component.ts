@@ -15,7 +15,7 @@ export class WasherApprovalComponent implements OnInit {
     this.washers=[];
     this._washerApprovalService.getUnapprovedWashers()
         .subscribe(
-          res => this.washers.push(res),
+          res => this.washers = res,
           err => console.log(err)
         )
   }

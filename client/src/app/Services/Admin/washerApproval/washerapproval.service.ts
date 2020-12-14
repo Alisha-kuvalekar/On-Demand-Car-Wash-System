@@ -30,5 +30,10 @@ export class WasherapprovalService {
     return this.http.delete(`${adminBaseURL}/washer/${id}`)
   }
 
+  /* get count of washers to display on dashboard */
+  countWashers() : Observable <any >{
+    return this.http.get(`${adminBaseURL}/countWashers`);
+  }
+
   
 }

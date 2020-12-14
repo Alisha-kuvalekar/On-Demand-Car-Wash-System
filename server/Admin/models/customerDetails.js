@@ -6,5 +6,7 @@ const dbURI = 'mongodb+srv://admin:admin012345@cluster0.gulvu.mongodb.net/custom
 const conn= mongoose.createConnection( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,useFindAndModify : false});
 
 const customerDetails = conn.model('customerdetail',new mongoose.Schema({}));
+const customer = conn.model('customer', new mongoose.Schema({}))
 
-module.exports = customerDetails;
+
+module.exports = {customer,  customerDetails};

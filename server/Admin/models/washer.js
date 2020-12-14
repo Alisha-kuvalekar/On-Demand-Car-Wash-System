@@ -26,5 +26,5 @@ const washerSchmema = new mongoose.Schema({
 });
 
 const washer = conn.model('washer',washerSchmema);
-
-module.exports = washer;
+const washerDetails = conn.model('washerdetail', new mongoose.Schema({}))
+module.exports = {washer, washerDetails};

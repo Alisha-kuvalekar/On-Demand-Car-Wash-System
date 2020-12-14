@@ -33,6 +33,9 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
     this.isVisible = false;
     this.profileDetails=[];
+    this.addOns =[];
+    this.plans =[];
+    this.washersList =[];
     this._profileService.getProfile()
       .subscribe(
         res => {

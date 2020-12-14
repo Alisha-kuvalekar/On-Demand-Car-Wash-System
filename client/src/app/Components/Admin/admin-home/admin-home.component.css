@@ -9,11 +9,51 @@
     letter-spacing: 2px;
 }
 
-.content{
-    font-size: 18px;
+
+
+ul li{
+    font-size: 25px;
+    font-family: 'Padauk', sans-serif;;
 }
 
-ul li, li button{
-    font-size: 22px;
-    font-family: 'Padauk', sans-serif;;
+button{
+    font-size: 20px;
+}
+
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40px;
+    max-width: 100%;
+}
+
+.item{
+    border-radius: 5px;
+    width: 350px;
+    flex-shrink :0;
+    margin-bottom: 13px;
+    
+    background: #4f4fcf;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #84d6d1, #7ea3e6, #4d64af);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #77bbb6, #5f8bdd, #4d64af); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.title{
+    font-size: 35px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    padding: 8px;
+}
+
+.count{
+    color:white;
+    text-align: right;
+    font-family: 'PT Serif', serif;
+    padding-right: 35px;
+    font-size: 60px;
 }
