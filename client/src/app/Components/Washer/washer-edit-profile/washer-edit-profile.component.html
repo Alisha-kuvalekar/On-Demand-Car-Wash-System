@@ -1,0 +1,48 @@
+<form *ngIf="details.length!=0" #editprofileForm="ngForm" class="col-sm-8 mx-auto profile" (ngSubmit)="updateProfileData(editprofileForm)" ngNativeValidate>
+    <h2 class="heading">Edit Profile Details</h2>
+    <div class="form-row">
+
+        <!-- Enter name  -->
+        <div  class="form-group col-md-6">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name= "name" [ngModel]="details[0][0]?.name"  (ngModelChange)="details[0].name =$event" required  >
+            <small class="text-danger">{{nameError}}</small>
+          </div>
+
+        <!-- enter mobile number -->
+        <div  class="form-group col-md-6">
+            <label for="mobile">Mobile</label>
+            <input type="tel" class="form-control" id="mobile" name="mobile" [ngModel]="details[0][0]?.mobile"  (ngModelChange)="details[0][0].mobile =$event" required >
+            <small class="text-danger">{{mobileError}}</small>
+          </div>
+      </div>
+
+      <!-- Address details -->
+      <div  class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" name="address" [ngModel]="details[0][0]?.addresses.address" (ngModelChange)="details[0][0].addresses.address =$event" required >
+      </div>
+      <div  class="form-row">
+        <div class="form-group col-md-6">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" name="city" [ngModel]="details[0][0]?.addresses.city" (ngModelChange)="details[0][0].addresses.city =$event" required >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="country">Country</label>
+          <input type="text" class="form-control" id="country" name="country" [ngModel]="details[0][0]?.addresses.country" (ngModelChange)="details[0][0].addresses.country =$event" required >
+        </div>
+        <div class="form-group col-md-2">
+          <label for="zipcode">Zipcode</label>
+          <input type="text" class="form-control" id="zipcode" name="zipcode" [ngModel]="details[0][0]?.addresses.zipcode" (ngModelChange)="details[0][0].addresses.zipcode =$event" required >
+        </div>
+      </div>
+      
+      <br>
+      <button type="submit" class="btn btn-warning">UPDATE</button>  &nbsp; 
+      <button type="button" class="btn btn-secondary" (click)="goBack()">BACK</button> <br> <br>
+      <div *ngIf="showMsg">
+        {{message}}
+      </div>
+  </form>
+    
+

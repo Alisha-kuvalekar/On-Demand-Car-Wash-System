@@ -1,0 +1,39 @@
+<div class="heading">CREATE PLAN</div> 
+<form #createPlanForm="ngForm" (ngSubmit) ="createPlan(createPlanForm)" class="plan" ngNativeValidate>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" ngModel required>
+      <small class="text-danger">{{nameError}}</small>
+    </div>
+
+    <div class="form-group">
+        <label for="time">Time (In minutes): For eg. 50-60</label>
+        <input type="text" class="form-control" id="time" name="time" ngModel required>
+    </div>
+
+    <div class="form-group">
+        <label for="cost">Cost</label>
+        <input type="number" class="form-control" name="cost" id="cost" ngModel required>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" ngModel required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Select Status</label>
+      <select class="form-control" id="status" name="status" ngModel required>
+        <option value="active">ACTIVE</option>
+        <option value="inactive">INACTIVE</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning">CREATE PLAN</button> &nbsp;
+    <button type="button" class="btn btn-secondary" (click)="cancel()">BACK</button>
+
+    <div *ngIf="showMsg" class="message">
+        {{message}}
+    </div>
+  </form>
+

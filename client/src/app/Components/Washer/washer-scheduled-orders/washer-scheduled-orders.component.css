@@ -1,0 +1,23 @@
+.table{
+    min-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.heading{
+    font-size: 50px;
+    margin-left: 0;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+.title{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.subtitle{
+    font-family: 'Padauk', sans-serif;
+    font-size: 25px;
+}

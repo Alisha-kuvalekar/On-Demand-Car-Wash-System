@@ -35,9 +35,10 @@ const handleErrors=(err)=>{
 module.exports.get_Services = function(req,res){
     servicePlan.find({},function(err,docs){
         if(err){
-            res.status(400).json(err);
+            const error= handleErrors(err);
+            res.status(400).json(error);
         }else {
-            res.status(201).send(docs);
+            res.status(201).json(docs);
         }
     })
 };
@@ -48,24 +49,25 @@ module.exports.get_Service = function(req,res){
     const id = req.params.id;
     servicePlan.findById(id,function(err,doc){
         if(err){
-            console.log(err);
-            res.status(400).json(err);
+            const error = handleErrors(err);
+            res.status(400).json(error);
         }else {
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     });
 };
 
 //Create and save a service in database
-module.exports.post_Service = async function(req,res){
+module.exports.post_Service = function(req,res){
     const serviceDetails = req.body;
-    try {
-        const service = await servicePlan.create(serviceDetails);
-        res.status(400).send(service);
-    } catch (error) {
-        const err= handleErrors(error);
-        res.status(400).json(err);
-    }
+    servicePlan.create(serviceDetails, function(err, result){
+        if(err){
+            const error= handleErrors(err);
+            req.status(400).json(error);
+        } else {
+            res.status(201).json(result);
+        }
+    })
 };
 
 //Fetch a service from database by Id and update
@@ -74,11 +76,11 @@ module.exports.put_Service = function(req,res){
     const newService = req.body;
     servicePlan.findByIdAndUpdate(id, newService, {new:true} , function(err,doc){
         if(err){
-            console.log(err);
-            res.status(400).json(err);
+            const error = handleErrors(err);
+            res.status(400).json(error);
         }
         else{
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };
@@ -93,7 +95,7 @@ module.exports.delete_Service = function(req,res)
             res.status(400).json(err);
         }
         else{
-            res.status(201).send("Document deleted successfully");
+            res.status(201).json(doc);
         }
     })
 };

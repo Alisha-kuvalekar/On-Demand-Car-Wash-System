@@ -1,0 +1,28 @@
+.plan{
+    padding: 15px;
+    width: 70%;
+    margin: auto;
+}
+
+.heading{
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+label{
+    font-size: large;
+    color : #007bff;
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: large;
+    padding: 10px;
+    color: white;
+    background-color: rgb(14, 163, 14);
+}

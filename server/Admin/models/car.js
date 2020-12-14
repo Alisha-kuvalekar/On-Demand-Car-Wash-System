@@ -9,6 +9,7 @@ const carSchema = new mongoose.Schema({
     model:{
         type: String,
         unique: true,
+        lowercase: true,
         required: [true, "Please enter the model of the car"]
     },
     status:{

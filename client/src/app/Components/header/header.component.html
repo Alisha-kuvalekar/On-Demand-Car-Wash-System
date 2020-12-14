@@ -24,9 +24,11 @@
   
       <!-- Login and Signup buttons -->
       <form class="form-inline my-2 my-lg-0">
-        <a class="btn " *ngIf="!(_auth.loggedIn() || _washerauth.loggedIn())" href="#" role="button" routerLink ='/signup'>SIGN UP</a>
-        <a class="btn " *ngIf="!(_auth.loggedIn() || _washerauth.loggedIn())" href="#" role="button" routerLink ='/login'>LOGIN</a>
-        <a class="btn " *ngIf="_auth.loggedIn() || _washerauth.loggedIn()" href="#" role="button" (click)="_auth.logoutCustomer()">LOGOUT</a>
+        <a class="btn " *ngIf="!(_auth.loggedIn() || _washerauth.loggedIn() || _adminauth.loggedIn())" href="#" role="button" routerLink ='/signup'>SIGN UP</a>
+        <a class="btn " *ngIf="!(_auth.loggedIn() || _washerauth.loggedIn() || _adminauth.loggedIn())" href="#" role="button" routerLink ='/login'>LOGIN</a>
+        <a class="btn " *ngIf="_auth.loggedIn()" href="#" role="button" (click)="_auth.logoutCustomer()">LOGOUT</a>
+        <a class="btn " *ngIf="_washerauth.loggedIn()" href="#" role="button" (click)="_washerauth.logoutWasher()">LOGOUT</a>
+        <a class="btn " *ngIf="_adminauth.loggedIn()" href="#" role="button" (click)="_adminauth.logoutAdmin()">LOGOUT</a>
       </form>
     </div>
   </nav>

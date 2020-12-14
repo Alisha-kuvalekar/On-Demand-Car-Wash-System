@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyorderService } from 'src/app/Services/Customer/myorder/myorder.service';
+import { OrderService } from 'src/app/Services/Customer/order/order.service';
 
 @Component({
   selector: 'app-myorders',
@@ -14,37 +15,53 @@ export class MyordersComponent implements OnInit {
   completed=[];
   cancelled=[];
 
-  constructor(private _myorderService : MyorderService) { }
+  constructor(private _myorderService : MyorderService,
+              private _orderService : OrderService) { }
 
   ngOnInit(): void {
+    this.accepted =[],
+    this.pending =[],
+    this.inprocess=[],
+    this.completed =[],
+    this.cancelled =[],
+
     this._myorderService.getAcceptedOrders()
       .subscribe(
-        res => this.accepted.push(res),
+        res => this.accepted = res,
         err => console.log(err)   
       )
 
     this._myorderService.getPendingOrders()
       .subscribe(
-        res => this.pending.push(res),
+        res => this.pending = res,
         err => console.log(err)   
       )
 
     this._myorderService.getInprocessOrders()
       .subscribe(
-        res => this.inprocess.push(res),
+        res => this.inprocess = res,
         err => console.log(err)   
       )
 
     this._myorderService.getCompletedOrders()
       .subscribe(
-        res => this.completed.push(res),
+        res => this.completed = res,
         err => console.log(err)   
       )
       
     this._myorderService.getCancelledOrders()
       .subscribe(
-        res => this.cancelled.push(res),
+        res => this.cancelled = res,
         err => console.log(err)   
+      )
+  }
+
+
+  cancelOrder(orderId){
+    this._orderService.cancelOrder(orderId) 
+      .subscribe(
+        res => console.log(res),
+        err => console.log(err)
       )
   }
 

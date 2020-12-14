@@ -1,0 +1,26 @@
+<span id="heading">ADMIN LOGIN</span>
+<div class="loginForm">
+  <div id="icon">
+    <fa-icon id="userIcon" [icon]="user"></fa-icon>
+  </div>
+ 
+  <!-- Form -->
+  <form #loginForm="ngForm" (ngSubmit) = "login(loginForm)" ngNativeValidate>
+       
+      <!-- EMAIL INPUT --> 
+      <div class="form-group mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name ="email" ngModel required>
+        <small class="text-danger" > {{emailError}}</small>
+      </div>
+
+      <!-- PASSWORD INPUT --> 
+      <div class="form-group mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" ngModel required>
+        <small class="text-danger"> {{passwordError}}</small>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

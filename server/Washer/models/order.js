@@ -23,14 +23,24 @@ const orderSchema = new mongoose.Schema({
         }
     },
     address:{
-        type: {
-            type: String, 
-            enum: ['Point'], 
-            required: true
+        country:{
+            type:String,
+            lowercase: true,
+            required :[true,"Please enter the country name"]
         },
-          coordinates: {
-            type: [Number],
-            required: true
+        city:{
+            type:String,
+            lowercase: true,
+            required :[true,"Please enter the city name"]
+        },
+        address:{
+            type:String,
+            lowercase: true,
+            required :[true,"Please enter the address"]
+        },
+        zipcode:{
+            type: Number,
+            required: [true, "Please enter a zipcode"]
         }
     },
     package :{
@@ -38,10 +48,10 @@ const orderSchema = new mongoose.Schema({
         lowercase:true,
         required: [true, "Please enter name of the service"]
     },
-    addOns:[{
+    addOns:{
         type:String,
         lowercase:true
-    }],
+    },
     carInfo:{
         carName:{
             type:String,
@@ -73,15 +83,25 @@ const orderSchema = new mongoose.Schema({
             validate:[isMobilePhone,"Enter a valid mobile number"]
         },
         address:{
-            type: {
-                type: String, 
-                enum: ['Point'], 
-                required: true
+            country:{
+                type:String,
+                lowercase: true,
+                required :[true,"Please enter the country name"]
             },
-              coordinates: {
-                type: [Number],
-                required: true
-            } 
+            city:{
+                type:String,
+                lowercase: true,
+                required :[true,"Please enter the city name"]
+            },
+            address:{
+                type:String,
+                lowercase: true,
+                required :[true,"Please enter the address"]
+            },
+            zipcode:{
+                type: Number,
+                required: [true, "Please enter a zipcode"]
+            }
         }
     },
     totalCost:{

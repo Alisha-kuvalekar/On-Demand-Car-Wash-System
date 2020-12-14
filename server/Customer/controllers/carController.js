@@ -5,7 +5,7 @@ module.exports.get_cars = function(req,res){
         if(err){
             res.status(400).json(err);
         }else {
-            res.status(201).send(docs);
+            res.status(201).json(docs);
         }
     })
 };

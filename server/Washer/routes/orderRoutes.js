@@ -7,7 +7,7 @@ const router = Router();
 const urlencodedparser = bodyparser.urlencoded({extended: true});
 
 //Get list of pending orders by washer's id
-router.get('/requests/:washerId', requireAuth , orderController.get_orders);
+router.get('/requests', requireAuth , orderController.get_orders);
 
 //get one particular order by : order id
 router.get('/orders/:orderId', requireAuth , orderController.get_order);

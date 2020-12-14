@@ -1,0 +1,169 @@
+<div class="heading">MY ORDERS</div>
+
+<!-- Current order details -->
+<h3 class="text-primary title">CURRENT ORDERS</h3>
+<hr>
+
+<!-- List of all accepted orders -->
+<div class="table-responsive mx-auto" id="accepted">
+    <p  class="subtitle">Accepted Orders</p>
+    <div *ngIf="accepted.length == 0" class="text-center">
+        <p>No Accepted orders to show</p>
+    </div>
+    <table *ngIf="accepted.length != 0" class="table table-striped table-hover mx-auto w-auto">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Package</th>
+              <th scope="col">Addons</th>
+              <th scope="col">Car</th>
+              <th scope="col">City</th>
+              <th scope="col">Date & Time</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Scheduled Later</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of accepted; let i=index;">
+                <th scope="row">{{i}}</th>
+                <td > {{req.package}} </td>
+                <td > {{req.addOns}} </td>
+                <td > {{req.carInfo.carName}} - {{req.carInfo.carModel}} </td>
+                <td > {{req.address.city}} </td>
+                <td > {{req.dateTime}} </td>
+                <td > {{req.userDetails.name}} </td>
+                <td > {{req.isScheduledLater}} </td>
+                <td > {{req.totalCost}} </td> 
+              <td> 
+                  <button class="btn btn-warning" (click)="inprocessRequest(req._id)">In-process</button> &nbsp;
+                  <button class="btn btn-danger" (click)="cancelRequest(req._id)">Cancel</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br> <br>
+
+<!-- List of all in-process orders -->
+<div class="table-responsive mx-auto" id="inprocess">
+    <p  class="subtitle">In-process Orders</p>
+    <div *ngIf="inprocess.length == 0" class="text-center">
+        <p>No inprocess orders to show</p>
+    </div>
+    <table *ngIf="inprocess.length != 0" class="table table-striped table-hover mx-auto w-auto">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Package</th>
+              <th scope="col">Addons</th>
+              <th scope="col">Car</th>
+              <th scope="col">City</th>
+              <th scope="col">Date & Time</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Scheduled Later</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of inprocess; let i=index;">
+                <th scope="row">{{i}}</th>
+                <td > {{req.package}} </td>
+                <td > {{req.addOns}} </td>
+                <td > {{req.carInfo.carName}} - {{req.carInfo.carModel}} </td>
+                <td > {{req.address.city}} </td>
+                <td > {{req.dateTime}} </td>
+                <td > {{req.userDetails.name}} </td>
+                <td > {{req.isScheduledLater}} </td>
+                <td > {{req.totalCost}} </td> 
+              <td> 
+                  <button class="btn btn-success" (click)="completedOrder(req._id)">Completed</button> &nbsp;
+              </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br> <br>
+
+<!-- Past orders Details -->
+<h3 class="text-primary title">PAST ORDERS</h3>
+<hr>
+
+<!-- List of all completed orders -->
+<div class="table-responsive mx-auto" id="completed">
+    <p  class="subtitle">Completed Orders</p>
+    <div *ngIf="completed.length ==0" class="text-center">
+        <p>No completed orders to show</p>
+    </div>
+    <table *ngIf="completed.length != 0" class="table table-striped table-hover mx-auto w-auto">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Package</th>
+              <th scope="col">Addons</th>
+              <th scope="col">Car</th>
+              <th scope="col">City</th>
+              <th scope="col">Date & Time</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Scheduled Later</th>
+              <th scope="col">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of completed; let i=index;">
+                <th scope="row">{{i}}</th>
+                <td > {{req.package}} </td>
+                <td > {{req.addOns}} </td>
+                <td > {{req.carInfo.carName}} - {{req.carInfo.carModel}} </td>
+                <td > {{req.address.city}} </td>
+                <td > {{req.dateTime}} </td>
+                <td > {{req.userDetails.name}} </td>
+                <td > {{req.isScheduledLater}} </td>
+                <td > {{req.totalCost}} </td> 
+            </tr>
+        </tbody>
+    </table>
+</div>
+ <br> <br>
+
+<!-- List of all cancelled orders -->
+<div class="table-responsive mx-auto" id="cancelled">
+    <p  class="subtitle">Cancelled Orders</p>
+    <div *ngIf="cancelled.length == 0" class="text-center">
+        <p>No cancelled orders to show</p>
+    </div>
+    <table *ngIf="cancelled.length != 0" class="table table-striped table-hover mx-auto w-auto">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Package</th>
+              <th scope="col">Addons</th>
+              <th scope="col">Car</th>
+              <th scope="col">City</th>
+              <th scope="col">Date & Time</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Scheduled Later</th>
+              <th scope="col">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of cancelled; let i=index;">
+                <th scope="row">{{i}}</th>
+                <td > {{req.package}} </td>
+                <td > {{req.addOns}} </td>
+                <td > {{req.carInfo.carName}} - {{req.carInfo.carModel}} </td>
+                <td > {{req.address.city}} </td>
+                <td > {{req.dateTime}} </td>
+                <td > {{req.userDetails.name}} </td>
+                <td > {{req.isScheduledLater}} </td>
+                <td > {{req.totalCost}} </td> 
+              
+            </tr>
+        </tbody>
+    </table>
+</div>
+

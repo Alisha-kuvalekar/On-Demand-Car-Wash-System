@@ -73,8 +73,8 @@ module.exports.post_login = async function(req,res){
     try {
       const user = await Admin.login(email, password);
       const token = createToken(user._id); 
-      res.cookie('ajwt',token, {httpOnly: true, maxAge : maxAge*1000}); 
-      res.status(201).send(user._id);
+      //res.cookie('ajwt',token, {httpOnly: true, maxAge : maxAge*1000}); 
+      res.status(201).send({token});
     } catch (error) {
         const err = handleErrors(error);
         res.status(400).json(err);

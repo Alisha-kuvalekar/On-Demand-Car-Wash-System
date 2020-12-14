@@ -34,7 +34,7 @@ module.exports.get_cars = function(req,res){
         if(err){
             res.status(400).json(err);
         }else {
-            res.status(201).send(docs);
+            res.status(201).json(docs);
         }
     })
 };
@@ -47,7 +47,7 @@ module.exports.get_car = function(req,res){
             console.log(err);
             res.status(400).json(err);
         }else {
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     });
 };
@@ -55,13 +55,14 @@ module.exports.get_car = function(req,res){
 //POST(create) new car
 module.exports.post_cars = async function(req,res){
     const carDetails = req.body;
-    try {
-        const newCar = await car.create(carDetails);
-        res.status(400).send(newCar);
-    } catch (error) {
-        const err= handleErrors(error);
-        res.status(400).json(err); 
-    } 
+    car.create(carDetails, function(err, result){
+        if(err){
+            const error = handleErrors(err);
+            res.status(400).json(error)
+        } else {
+            res.status(200).json(result)
+        }
+    })
 };
 
 //PUT(update) a car details
@@ -70,11 +71,11 @@ module.exports.put_cars =function(req,res){
     const updatedCar = req.body;
     car.findByIdAndUpdate(id, updatedCar, {new:true} , function(err,doc){
         if(err){
-            console.log(err);
-            res.status(400).json(err);
+            const error = handleErrors(err)
+            res.status(400).json(error);
         }
         else{
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };
@@ -84,11 +85,11 @@ module.exports.delete_cars = function(req,res){
     const id = req.params.id;
     car.findByIdAndDelete(id, function(err,doc){
         if(err){
-            console.log(err);
-            res.status(400).json(err);
+            const error = handleErrors(err)
+            res.status(400).json(error);
         }
         else{
-            res.status(201).send("Document deleted successfully");
+            res.status(201).json(doc);
         }
     })
 };

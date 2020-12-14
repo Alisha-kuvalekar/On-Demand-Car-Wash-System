@@ -1,0 +1,40 @@
+<div class="heading">CREATE ADDON</div> 
+<form #createAddonForm="ngForm" (ngSubmit) ="createAddon(createAddonForm)" class="addon" ngNativeValidate>
+    <div class="form-group">
+      <label for="name">1. Name</label>
+      <input type="text" class="form-control" id="name" name="name" ngModel required>
+      <small class="text-danger">{{nameError}}</small>
+    </div>
+
+
+   <div class="form-group"> 
+        <label for="forServices">2. Select for which service(s) addon will be applicable</label>
+        <select class="form-control" name="forServices" id="forServices" multiple ngModel required>
+            <option *ngFor ="let plan of plans[0]">
+                {{plan.name | uppercase}}
+            </option>
+        </select>
+   </div>
+
+    <div class="form-group">
+        <label for="cost">3. Cost</label>
+        <input type="number" class="form-control" name="cost" id="cost" ngModel required>
+    </div>
+
+
+    <div class="form-group">
+      <label for="status">4. Select Status</label>
+      <select class="form-control" id="status" name="status" ngModel required>
+        <option value="active">ACTIVE</option>
+        <option value="inactive">INACTIVE</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning">CREATE ADDON</button> &nbsp;
+    <button type="button" class="btn btn-secondary" (click)="cancel()">BACK</button>
+
+    <div *ngIf="showMsg" class="message">
+        {{message}}
+    </div>
+  </form>
+

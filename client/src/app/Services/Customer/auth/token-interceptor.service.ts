@@ -3,13 +3,15 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent} from '@angular/co
 import { AuthServiceService } from './auth-service.service';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../Washer/auth/auth.service';
-import { customerBaseURL, washerBaseURL } from 'src/environments/environment';
+import { adminBaseURL, customerBaseURL, washerBaseURL } from 'src/environments/environment';
+import { AdminAuthServiceService } from '../../Admin/auth/admin-auth-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenInterceptorService implements HttpInterceptor {
-  constructor(private _authService : AuthServiceService, private _washerAuth : AuthService) { }
+  constructor(private _authService : AuthServiceService, private _washerAuth : AuthService,
+              private _adminAuthService : AdminAuthServiceService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -32,6 +34,17 @@ export class TokenInterceptorService implements HttpInterceptor {
       })
       return next.handle(tokenizedReq);
     }
+
+    if(req.url.startsWith(adminBaseURL)){
+      let tokenizedReq = req.clone({
+        setHeaders:{
+          Authorization : `Bearer ${this._adminAuthService.getToken()}`
+        }
+      })
+      return next.handle(tokenizedReq);
+    }
+
+
     
     
   }

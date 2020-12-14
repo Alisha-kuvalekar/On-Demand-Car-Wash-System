@@ -14,9 +14,10 @@ export class LeaderboardComponent implements OnInit {
   constructor(private _leaderboardService : LeaderboardService) { }
 
   ngOnInit(): void {
+    this.leaderboardList =[];
     this._leaderboardService.getLeaderBoard()
       .subscribe(
-        res => this.leaderboardList.push(res),
+        res => this.leaderboardList= res,
         err => console.log(err)
       )
 

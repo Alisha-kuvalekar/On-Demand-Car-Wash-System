@@ -1,0 +1,38 @@
+<div class="heading">EDIT PLAN</div> 
+<form *ngIf="plan.length!=0" #editPlanForm="ngForm" (ngSubmit) ="updatePlan(editPlanForm)" class="plan" ngNativeValidate>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" [ngModel]="plan[0].name" required>
+      <small class="text-danger">{{nameError}}</small>
+    </div>
+
+    <div class="form-group">
+        <label for="time">Time (In minutes): For eg. 50-60</label>
+        <input type="text" class="form-control" id="time" name="time" [ngModel]="plan[0].time" required>
+    </div>
+
+    <div class="form-group">
+        <label for="cost">Cost</label>
+        <input type="number" class="form-control" name="cost" id="cost" [ngModel]="plan[0].cost" required>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" [ngModel]="plan[0].description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Select Status</label>
+      <select class="form-control" id="status" name="status" ngModel required>
+        <option value="active">ACTIVE</option>
+        <option value="inactive">INACTIVE</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning">UPDATE</button> &nbsp;
+    <button type="button" class="btn btn-secondary" (click)="cancel()">BACK</button>
+
+    <div *ngIf="showMsg" class="message">
+        {{message}}
+    </div>
+  </form>

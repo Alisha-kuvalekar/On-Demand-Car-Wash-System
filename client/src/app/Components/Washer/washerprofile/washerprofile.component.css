@@ -1,0 +1,22 @@
+.heading{
+    font-size: 55px;
+    margin-left: 0;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+
+label{
+    font-size: large;
+}
+
+button{
+    font-size: large;
+}
+
+.profile{
+    padding: 15px;
+    margin: 20px;
+}

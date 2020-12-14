@@ -14,7 +14,7 @@ const app = express();
 
 //Connect to Customers Database
 const dbURI="mongodb+srv://Washer:123wash@cluster0.gulvu.mongodb.net/washers?retryWrites=true&w=majority";
-mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
 
 
 //middleware

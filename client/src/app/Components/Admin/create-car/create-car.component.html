@@ -1,0 +1,32 @@
+<div class="heading">CREATE CAR</div> 
+<form #createCarForm="ngForm" (ngSubmit) ="createCar(createCarForm)" class="car" ngNativeValidate>
+
+    <div class="form-group">
+      <label for="name">1. Car Name</label>
+      <input type="text" class="form-control" id="name" name="name" ngModel required>
+    </div>
+
+     <br>
+    <div class="form-group">
+        <label for="model">2. Car Model</label>
+        <input type="text" class="form-control" name="model" id="model" ngModel required>
+        <small class="text-danger">{{modelError}}</small>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="status">3. Select Status</label>
+      <select class="form-control" id="status" name="status" ngModel required>
+        <option value="active">ACTIVE</option>
+        <option value="inactive">INACTIVE</option>
+      </select>
+    </div>
+     <br>
+    <button type="submit" class="btn btn-warning">CREATE CAR</button> &nbsp;
+    <button type="button" class="btn btn-secondary" (click)="cancel()">BACK</button>
+
+    <div *ngIf="showMsg" class="message">
+        {{message}}
+    </div>
+
+</form>

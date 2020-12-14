@@ -1,0 +1,19 @@
+.wrapper{
+    padding: 20px;
+}
+
+.heading{
+    font-size: 60px;
+    margin-left: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+.content{
+    font-size: 18px;
+}
+
+ul li, li button{
+    font-size: 22px;
+    font-family: 'Padauk', sans-serif;;
+}

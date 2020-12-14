@@ -6,10 +6,10 @@
 <!-- List of user's accpeted Orders -->
 <div id="accepted">
     <p class="subtitle">Accepted Orders</p>
-    <div *ngIf="accepted.length[0]==null" class="text-center d-inline">
+    <div *ngIf="accepted.length==0" class="text-center d-inline">
         <p>No Accepted orders to show</p>
     </div>
-    <table *ngIf="accepted.length[0]!=null" class="table table-hover">
+    <table *ngIf="accepted.length !=0" class="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -20,10 +20,11 @@
               <th scope="col">Address</th>
               <th scope="col">Washer Name</th>
               <th scope="col">Total Cost</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr  *ngFor="let s of accepted[0]; let i=index;">
+            <tr  *ngFor="let s of accepted; let i=index;">
               <th scope="row">{{i}}</th>
               <td>{{s.package}}</td>
               <td>{{s.addOn}}</td>
@@ -31,19 +32,23 @@
               <td>{{s.dateTime}}</td>
               <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
               <td>{{s.washerDetails.name}}</td>
-              <td>{{s.totalCost}}</td>
+              <td>₹{{s.totalCost}}</td>
+              <td>
+                <button class="btn btn-danger" (click)="cancelOrder(s._id)">Cancel</button>
+              </td>
             </tr>
           </tbody>
     </table>
 </div>
+<br> <br>
 
 <!-- List of user's pending orders  -->
 <div id="pending">
     <p  class="subtitle">Pending Orders</p>
-    <div *ngIf="pending.length[0]==null" class="text-center">
+    <div *ngIf="pending.length==0" class="text-center">
         <p>No Pending orders to show</p>
     </div>
-    <table *ngIf="pending.length[0]!=null" class="table table-hover">
+    <table *ngIf="pending.length!=0" class="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -54,10 +59,11 @@
               <th scope="col">Address</th>
               <th scope="col">Washer Name</th>
               <th scope="col">Total Cost</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr  *ngFor="let s of pending[0]; let i=index;">
+            <tr  *ngFor="let s of pending; let i=index;">
               <th scope="row">{{i}}</th>
               <td>{{s.package}}</td>
               <td>{{s.addOn}}</td>
@@ -65,19 +71,24 @@
               <td>{{s.dateTime}}</td>
               <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
               <td>{{s.washerDetails.name}}</td>
-              <td>{{s.totalCost}}</td>
+              <td>₹{{s.totalCost}}</td>
+              <td>
+                <button class="btn btn-danger" (click)="cancelOrder(s._id)">Cancel</button>
+              </td>
             </tr>
           </tbody>
     </table>
 </div>
+
+<br> <br>
 
 <!-- List of user's in-process orders  -->
 <div id="pending">
     <p  class="subtitle">In-process Orders</p>
-    <div *ngIf="inprocess.length[0]==null" class="text-center">
+    <div *ngIf="inprocess.length==0" class="text-center">
         <p>No inprocess orders to show</p>
     </div>
-    <table *ngIf="inprocess.length[0]!=null" class="table table-hover">
+    <table *ngIf="inprocess.length!=0" class="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -91,7 +102,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr  *ngFor="let s of inprocess[0]; let i=index;">
+            <tr  *ngFor="let s of inprocess; let i=index;">
               <th scope="row">{{i}}</th>
               <td>{{s.package}}</td>
               <td>{{s.addOn}}</td>
@@ -99,22 +110,24 @@
               <td>{{s.dateTime}}</td>
               <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
               <td>{{s.washerDetails.name}}</td>
-              <td>{{s.totalCost}}</td>
+              <td>₹{{s.totalCost}}</td>
             </tr>
           </tbody>
     </table>
 </div>
+
+<br> <br>
 
 <h3 class="text-primary title">PAST ORDERS</h3>
 <hr>
 
-<!-- List of user's pending orders  -->
+<!-- List of user's completed orders  -->
 <div id="completed">
     <p  class="subtitle">Completed Orders</p>
-    <div *ngIf="completed.length[0]==null" class="text-center">
+    <div *ngIf="completed.length==0" class="text-center">
         <p>No Completed orders to show</p>
     </div>
-    <table *ngIf="completed.length[0]!=null" class="table table-hover">
+    <table *ngIf="completed.length!=0" class="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -128,7 +141,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr  *ngFor="let s of completed[0]; let i=index;">
+            <tr  *ngFor="let s of completed; let i=index;">
               <th scope="row">{{i}}</th>
               <td>{{s.package}}</td>
               <td>{{s.addOn}}</td>
@@ -136,19 +149,21 @@
               <td>{{s.dateTime}}</td>
               <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
               <td>{{s.washerDetails.name}}</td>
-              <td>{{s.totalCost}}</td>
+              <td>₹{{s.totalCost}}</td>
             </tr>
           </tbody>
     </table>
 </div>
 
+<br> <br>
+
 <!-- List of user's cancelled orders  -->
 <div id="cancelled">
     <p  class="subtitle">Cancelled Orders</p>
-    <div *ngIf="cancelled.length[0]==null" class="text-center">
+    <div *ngIf="cancelled.length == 0" class="text-center">
         <p>No Cancelled orders to show</p>
     </div>
-    <table *ngIf="cancelled.length[0]!=null" class="table table-hover">
+    <table *ngIf="cancelled.length !=0" class="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -162,7 +177,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr  *ngFor="let s of cancelled[0]; let i=index;">
+            <tr  *ngFor="let s of cancelled; let i=index;">
               <th scope="row">{{i}}</th>
               <td>{{s.package}}</td>
               <td>{{s.addOn}}</td>
@@ -170,7 +185,7 @@
               <td>{{s.dateTime}}</td>
               <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
               <td>{{s.washerDetails.name}}</td>
-              <td>{{s.totalCost}}</td>
+              <td>₹{{s.totalCost}}</td>
             </tr>
           </tbody>
     </table>

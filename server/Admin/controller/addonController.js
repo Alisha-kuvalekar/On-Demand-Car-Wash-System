@@ -29,7 +29,7 @@ const handleErrors=(err)=>{
 
 //Route handlers
 
-//GET all promocodes details
+//GET all Addons details
 module.exports.get_addons = function(req,res){
     addOn.find({},function(err,docs){
         if(err){
@@ -40,7 +40,7 @@ module.exports.get_addons = function(req,res){
     })
 };
 
-//GET a specific promocode details
+//GET a specific Addon details
 module.exports.get_addon = function(req,res){
     const id = req.params.id;
     addOn.findById(id,function(err,doc){
@@ -53,19 +53,20 @@ module.exports.get_addon = function(req,res){
     });
 };
 
-//POST(create) new promocode
+//POST(create) new addon
 module.exports.post_addons = async function(req,res){
     const addonDetails = req.body;
-    try {
-        const code = await addOn.create(addonDetails);
-        res.status(400).send(code);
-    } catch (error) {
-        const err= handleErrors(error);
-        res.status(400).json(err); 
-    } 
+    addOn.create(addonDetails, function(err, result){
+        if(err){
+            const error = handleErrors(err);
+            res.status(400).json(error)
+        } else {
+            res.status(200).json(result)
+        }
+    })
 };
 
-//PUT(update) a promocode's details
+//PUT(update) a addon's details
 module.exports.put_addons =function(req,res){
     const id = req.params.id;
     const newaddon = req.body;
@@ -75,12 +76,12 @@ module.exports.put_addons =function(req,res){
             res.status(400).json(err);
         }
         else{
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };
 
-//DELETE a promocode
+//DELETE a addon
 module.exports.delete_addons = function(req,res){
     const id = req.params.id;
     addOn.findByIdAndDelete(id, function(err,doc){
@@ -89,7 +90,7 @@ module.exports.delete_addons = function(req,res){
             res.status(400).json(err);
         }
         else{
-            res.status(201).send("Document deleted successfully");
+            res.status(201).json(doc);
         }
     })
 };

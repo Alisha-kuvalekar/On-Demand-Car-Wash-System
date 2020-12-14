@@ -56,13 +56,14 @@ module.exports.get_promocode = function(req,res){
 //POST(create) new promocode
 module.exports.post_promocodes = async function(req,res){
     const promocodeDetails = req.body;
-    try {
-        const code = await promocode.create(promocodeDetails);
-        res.status(400).send(code);
-    } catch (error) {
-        const err= handleErrors(error);
-        res.status(400).json(err);
-    } 
+    promocode.create(promocodeDetails, function(err, result){
+        if(err) {
+            const error = handleErrors(err);
+            res.status(400).json(error);
+        } else {
+            res.status(201).json(result);
+        }
+    })
 };
 
 //PUT(update) a promocode's details

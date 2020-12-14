@@ -39,15 +39,16 @@ module.exports.get_profile= function(req,res){
 
 //post the washer details
 module.exports.post_profile= async function(req,res){
-    console.log(req.body);
     const details = req.body;
-    try {
-        const user = await washerDetails.create(details);
-        res.status(201).send(user._id);
-    } catch (error) {
-        console.log(error);
-        res.status(400).json(error);
-    }  
+    details.userId = req.userId;
+    washerDetails.create(details, function(err,result){
+        if(err){
+            const error = handleErrors(err);
+            res.status(400).json(error);
+        } else {
+            res.status(201).json(result)
+        }
+    })
 }
 
 //fetch the document of washer by Id 

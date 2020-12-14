@@ -1,0 +1,30 @@
+<div class="heading">Cars Management</div> <br>
+
+<button class="btn btn-success float-right mb-3" routerLink="../createCar">CREATE NEW CAR</button>
+
+
+<div class="table-responsive mb-4"> 
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Model</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let car of cars[0]; let i= index">
+        <th scope="row">{{i+1}}</th>
+        <td> {{car.name | uppercase}} </td>
+        <td> {{car.model | uppercase}} </td>
+        <td> {{car.status | uppercase}} </td>
+        <td>
+          <button class="btn btn-warning" [routerLink]="['../editCar', car._id]">EDIT</button> &nbsp;
+          <button class="btn btn-danger" (click)="deleteCar(car._id)">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

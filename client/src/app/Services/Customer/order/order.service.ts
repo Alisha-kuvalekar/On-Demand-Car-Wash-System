@@ -7,7 +7,7 @@ import { customerBaseURL } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class OrderService {
 
   httpOptions = {
@@ -20,14 +20,11 @@ export class OrderService {
 
   /* Create a new order */
   createOrder(order): Observable<any> {
-    return this.http.post(`${customerBaseURL}/order`, order, this.httpOptions);
+    return this.http.post(`${customerBaseURL}/order`,  order, this.httpOptions);
   }
 
   /* get addons */
   getAddons(service): Observable <any>{
-    console.log(service);
-    console.log(`${customerBaseURL}/addons/${service}`);
-    
     return this.http.get(`${customerBaseURL}/addons/${service}`)
   }
 

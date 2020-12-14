@@ -1,5 +1,5 @@
 .table{
-    width: 75%;
+    min-width:  75%;
     margin: auto;
     text-align: center;
 }

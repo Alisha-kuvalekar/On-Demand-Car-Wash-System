@@ -4,7 +4,7 @@ const { isMobilePhone} = require('validator');
 
 //Connecting to orders database
 const dbURI="mongodb+srv://Customer:123cust@cluster0.gulvu.mongodb.net/orders?retryWrites=true&w=majority";
-const orderConn =mongoose.createConnection( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+const orderConn =mongoose.createConnection( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
 
 const orderSchema = new mongoose.Schema({
     userDetails :{

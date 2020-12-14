@@ -20,27 +20,27 @@ module.exports.get_order= function(req,res){
     res.send("This is the order booking page");
 };
 
-module.exports.create_order = async function(req,res){
+module.exports.create_order = function(req,res){
     const newOrder = req.body;
-    try {
-        const doc = await order.create(newOrder);
-        res.status(400).send(doc);
-    } catch (error) {
-        console.log(error);
-        const err= handleErrors(error);
-        res.status(400).json(err);
-    }
+    order.create(newOrder, function(err,result){
+        if(err){
+            const error = handleErrors(err);
+            res.status(400).json(error);
+        } else {
+            res.status(201).json(result);
+        }
+    })
 };
 
 module.exports.cancel_order = function(req,res){
     const id = req.params.id;
     order.findByIdAndUpdate(id, {$set:{status: 'cancelled'}}, {new:true} , function(err,doc){
         if(err){
-            console.log(err);
-            res.status(400).json(err);
+            const error = handleErrors(err)
+            res.status(400).json(error);
         }
         else{
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };

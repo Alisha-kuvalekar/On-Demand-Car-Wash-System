@@ -9,7 +9,7 @@ module.exports.get_accepted_orders = function(req,res){
         if(err){
             res.status(400).json(err);
         } else {
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };
@@ -21,7 +21,7 @@ module.exports.get_pending_orders = function(req,res){
         if(err){
             res.status(400).json(err);
         } else {
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };
@@ -33,7 +33,7 @@ module.exports.get_inprocess_orders = function(req,res){
         if(err){
             res.status(400).json(err);
         } else {
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };
@@ -45,7 +45,7 @@ module.exports.get_completed_orders = function(req,res){
         if(err){
             res.status(400).json(err);
         } else {
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };
@@ -57,7 +57,7 @@ module.exports.get_cancelled_orders = function(req,res){
         if(err){
             res.status(400).json(err);
         } else {
-            res.status(201).send(doc);
+            res.status(201).json(doc);
         }
     })
 };

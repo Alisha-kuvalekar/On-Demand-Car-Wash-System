@@ -1,4 +1,4 @@
-<form #editprofileForm="ngForm" class="col-sm-8 mx-auto profile" (ngSubmit)="editProfileData(editprofileForm)" ngNativeValidate>
+<form *ngIf="details.length!=0" #editprofileForm="ngForm" class="col-sm-8 mx-auto profile" (ngSubmit)="editProfileData(editprofileForm)" ngNativeValidate>
     <h2 class="heading">Edit Profile Details</h2>
     <div class="form-row">
         <div class="form-group col-md-6">

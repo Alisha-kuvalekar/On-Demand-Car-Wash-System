@@ -12,10 +12,11 @@ export class ScheduledOrderComponent implements OnInit {
   constructor(private _orderService: OrderService) { }
 
   ngOnInit(): void {
+    this.scheduled=[];
     this._orderService.getScheduledWashes()
       .subscribe(
         res =>{
-          this.scheduled.push(res),
+          this.scheduled = res,
           console.log(res)
         },
         err => console.log(err)

@@ -44,23 +44,23 @@ module.exports.get_profile= function(req,res){
 module.exports.post_profile= async function(req,res){
    const details = req.body;
    details.userId = req.userId;
-   console.log(req.body);
-    try {
-        const user = await customerDetails.create(details);
-        res.status(201).send(user._id);
-    } catch (error) {
-        console.log(error);
-        const err = handleErrors(error);
-        res.status(400).json(err);
-    }  
+   customerDetails.create(details, function(err,result){
+       if(err) {
+           const error = handleErrors(err);
+           res.status(400).json(error);
+       } else {
+           res.status(200).json(result);
+       }
+   })
+
 }
 
 //fetch the document of customer by Id 
-module.exports.get_specific_profile = async function(req,res){
+module.exports.get_specific_profile = function(req,res){
     const _id = req.userId;
     customerDetails.find({"userId" : _id}, function(err,result){
         if(err){
-            res.status(401).send(err);
+            res.status(401).json(err);
         }
         else{
             res.status(201).json(result)

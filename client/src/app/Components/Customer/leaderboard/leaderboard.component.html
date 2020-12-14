@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of leaderboardList[0]; let i=index;">
+            <tr *ngFor="let user of leaderboardList; let i=index;">
               <th scope="row">{{i}}</th>
               <td > {{user.name}} </td>
               <td> {{user.addresses.city}} </td>
