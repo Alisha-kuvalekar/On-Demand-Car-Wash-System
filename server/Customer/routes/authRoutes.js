@@ -1,5 +1,8 @@
 const { Router } = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors')
+const passport = require('passport');
+const passportSetup = require('../services/passport-setup');
 const authController = require('../controllers/authController');
 const oauthController = require('../controllers/oauthController');
 const { requireAuth } = require('../middleware/authMiddleware');
@@ -8,6 +11,13 @@ const { requireAuth } = require('../middleware/authMiddleware');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const router = Router();
 
+//Creating JWT Token for google auth
+const maxAge = 2 * 24 * 60 * 60;  //token will expire in 2 days
+const createToken =(id)=>{
+    return jwt.sign({ id }, 'A strong secret token',{
+        expiresIn: maxAge
+    })
+}
 
 //Routes for signup
 router.get('/signup', authController.get_signup);
@@ -21,7 +31,14 @@ router.post('/login',urlencodedParser ,authController.post_login);
 router.get('/logout',authController.get_logout);
 
 //google auth routes
-router.get('/google', oauthController.get_google)
+router.get('/google', passport.authenticate('google', {
+    scope: ['profile', 'email']
+}))
+
+//callback route for google to redirect to 
+router.get('/google/redirect',passport.authenticate('google') ,(req,res)=>{
+    
+})
 
 
 

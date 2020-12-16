@@ -12,7 +12,8 @@ export class WasherMyOrdersComponent implements OnInit {
 
   accepted=['as'];
   inprocess=[];
-  completed=[];
+  completedAndPaid=[];
+  completedAndUnpaid =[];
   cancelled=[];
 
   constructor(private _myorderservice : WasherMyorderService,
@@ -21,7 +22,8 @@ export class WasherMyOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.accepted =[]
     this.inprocess=[];
-    this.completed=[];
+    this.completedAndPaid=[];
+    this.completedAndUnpaid =[];
     this.cancelled=[];
     this._myorderservice.acceptedOrders()
       .subscribe(
@@ -35,9 +37,15 @@ export class WasherMyOrdersComponent implements OnInit {
         err=>console.log(err)
       )
 
-    this._myorderservice.completedOrders()
+    this._myorderservice.completedAndPaidOrders()
       .subscribe(
-        res=> this.completed=res,
+        res=> this.completedAndPaid=res,
+        err=>console.log(err)
+      )
+
+    this._myorderservice.completedAndUnpaidOrders()
+      .subscribe(
+        res=> this.completedAndUnpaid=res,
         err=>console.log(err)
       )
 
@@ -52,7 +60,7 @@ export class WasherMyOrdersComponent implements OnInit {
   cancelRequest(orderId){
     this._orderservice.rejectRequest(orderId)
       .subscribe(
-        res => console.log(res),
+        res => {console.log(res), this.ngOnInit()},
         err =>console.log(err)
       )
   }
@@ -61,7 +69,7 @@ export class WasherMyOrdersComponent implements OnInit {
   inprocessRequest(orderId){
     this._orderservice.inprocessOrder(orderId)
       .subscribe(
-        res => console.log(res),
+        res => {console.log(res), this.ngOnInit()},
         err =>console.log(err)
       )
   }
@@ -70,7 +78,7 @@ export class WasherMyOrdersComponent implements OnInit {
   completedOrder(orderId){
     this._orderservice.completedOrder(orderId)
       .subscribe(
-        res => console.log(res),
+        res =>{console.log(res), this.ngOnInit()},
         err =>console.log(err)
       )
   }

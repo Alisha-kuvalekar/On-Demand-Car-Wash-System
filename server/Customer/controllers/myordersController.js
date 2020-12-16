@@ -37,10 +37,22 @@ module.exports.get_inprocess_orders = function(req,res){
     })
 };
 
-//Get completed orders
-module.exports.get_completed_orders = function(req,res){
+//Get completed and paid orders
+module.exports.get_completed_paid_orders = function(req,res){
     const id = req.userId;
-    order.find({$and:[{"userDetails.userId":id},{status:'completed'}]},function(err,doc){
+    order.find({$and:[{"userDetails.userId":id},{status:'completed'},{isPaymentDone: 'true'}]},function(err,doc){
+        if(err){
+            res.status(400).json(err);
+        } else {
+            res.status(201).json(doc);
+        }
+    })
+};
+
+//Get completed and unpaid orders
+module.exports.get_completed_unpaid_orders = function(req,res){
+    const id = req.userId;
+    order.find({$and:[{"userDetails.userId":id},{status:'completed'},{isPaymentDone: 'false'}]},function(err,doc){
         if(err){
             res.status(400).json(err);
         } else {

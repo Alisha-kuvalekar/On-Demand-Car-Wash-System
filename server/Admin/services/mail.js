@@ -1,20 +1,20 @@
 const nodemailer = require('nodemailer');
-const { emailId, passsword } = require('../../config')
+const keys = require('../../config')
 
 /* Send rejected mail to washer */
 const rejectedMailToWasher = function(email){
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
            auth: {
-                user: emailId,
-                pass: passsword,
+                user: keys.emailId,
+                pass: keys.passsword,
              },
         secure: true,
     });
     
     
     const mailData = {
-          from: emailId,  // sender address
+          from: keys.emailId,  // sender address
           to: email,   // reciever
           subject: 'ACCOUNT DECLINED',
           text: 'Hey, sorry to inform you, but your registration as washer is declined by the Admin. Good luck for future endeavours!'   
@@ -34,15 +34,15 @@ const acceptedMailToWasher = function(email){
   const transporter = nodemailer.createTransport({
       service: 'Gmail',
          auth: {
-              user: emailId,
-              pass: passsword,
+              user: keys.emailId,
+              pass: keys.passsword,
            },
       secure: true,
   });
   
   
   const mailData = {
-        from: emailId,  // sender address
+        from: keys.emailId,  // sender address
         to: email,   // reciever
         subject: 'ACCOUNT APPROVED',
         html : 

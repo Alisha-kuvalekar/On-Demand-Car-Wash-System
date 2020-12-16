@@ -31,7 +31,10 @@ export class AdminLoginComponent implements OnInit {
         localStorage.setItem('ajwt',res.token)
         this.router.navigate(['/adminDashboard/adminHome'])
       },
-      err => console.log(err)
+      err => {
+        this.emailError = err.error.email,
+        this.passwordError = err.error.password
+      }
       
      /*  err => {this.emailError =err.error.email, this.passwordError = err.error.password} */
     )

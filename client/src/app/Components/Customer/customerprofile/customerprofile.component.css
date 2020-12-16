@@ -14,3 +14,11 @@
 label{
     font-size: large;
 }
+
+.message{
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    font-size: large;
+    background-color: rgb(17, 161, 17);
+}

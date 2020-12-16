@@ -1,5 +1,5 @@
 const order = require('../models/order');
-
+const profile = require('../models/profile');
 
 //handle errors
 const handleErrors=(err)=>{
@@ -44,3 +44,28 @@ module.exports.cancel_order = function(req,res){
         }
     })
 };
+
+
+module.exports.orderPaymentFulfilled = function(req, res){
+    const id= req.params.id;
+    order.findByIdAndUpdate(id, {$set :{isPaymentDone :true }}, {new: true}, function(err,doc){
+        if( err){
+            const error = handleErrors(err);
+            res.status(400).json(error)
+        } else {
+            res.status(201).json(doc);
+        }
+    })
+}
+
+module.exports.increaseWashCount = function(req,res){
+    const id = req.userId;
+    profile.findOneAndUpdate(id, {$inc :{noOfWashes : 1 }}, {new: true}, function(err, doc){
+        if(err){
+            res.status(400).json(err)
+        } else {
+            res.status(201).json(doc)
+        }
+    })
+    
+}

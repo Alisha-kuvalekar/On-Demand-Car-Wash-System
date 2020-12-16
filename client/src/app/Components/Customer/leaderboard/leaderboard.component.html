@@ -12,8 +12,8 @@
         <tbody>
             <tr *ngFor="let user of leaderboardList; let i=index;">
               <th scope="row">{{i}}</th>
-              <td > {{user.name}} </td>
-              <td> {{user.addresses.city}} </td>
+              <td > {{user.name | uppercase }} </td>
+              <td> {{user.addresses.city | uppercase}} </td>
               <td> {{user.noOfWashes}} <fa-icon [icon]="dropIcon"></fa-icon> </td>
             </tr>
         </tbody>

@@ -22,6 +22,7 @@ import { EditprofileComponent } from './Components/Customer/editprofile/editprof
 import { LeaderboardComponent } from './Components/Customer/leaderboard/leaderboard.component';
 import { MyordersComponent } from './Components/Customer/myorders/myorders.component';
 import { OrderComponent } from './Components/Customer/order/order.component';
+import { PaymentComponent } from './Components/Customer/payment/payment.component';
 import { ScheduledOrderComponent } from './Components/Customer/scheduled-order/scheduled-order.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -73,7 +74,8 @@ const routes: Routes = [
         {path: 'customerOrder',component: OrderComponent, canActivate :[AuthGuard] },
         {path: 'customerScheduledOrders', component: ScheduledOrderComponent, canActivate :[AuthGuard] },
         {path: 'customerOrders', component : MyordersComponent, canActivate :[AuthGuard] },
-        {path: 'leaderboard', component: LeaderboardComponent, canActivate :[AuthGuard] }
+        {path: 'leaderboard', component: LeaderboardComponent, canActivate :[AuthGuard] },
+        {path : 'payment', component : PaymentComponent, canActivate :[AuthGuard]}
       ]
   },
   { path: 'washerDashboard', component:WasherdashboardComponent,

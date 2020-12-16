@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { customerBaseURL } from 'src/environments/environment';
@@ -9,6 +9,13 @@ import { customerBaseURL } from 'src/environments/environment';
 })
 export class MyorderService {
 
+  
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
   constructor(private http: HttpClient) { }
 
   /* Get accepted Orders */
@@ -16,23 +23,33 @@ export class MyorderService {
     return this.http.get(`${customerBaseURL}/accepted`);
   }
 
-  /* Get accepted Orders */
+  /* Get pending Orders */
   getPendingOrders() : Observable<any>{
     return this.http.get(`${customerBaseURL}/pending`);
   }
 
-  /* Get accepted Orders */
+  /* Get inprocess Orders */
   getInprocessOrders() : Observable<any>{
     return this.http.get(`${customerBaseURL}/inprocess`);
   }
 
-  /* Get accepted Orders */
-  getCompletedOrders() : Observable<any>{
-    return this.http.get(`${customerBaseURL}/completed`);
+  /* Get completed and paid orders */
+  getCompletedAndPaidOrders() : Observable<any>{
+    return this.http.get(`${customerBaseURL}/completedAndPaid`);
   }
 
-  /* Get accepted Orders */
+  /* Get completed and paid orders */
+   getCompletedAndUnpaidOrders() : Observable<any>{
+    return this.http.get(`${customerBaseURL}/completedAndUnpaid`);
+  }
+
+  /* Get cancelled Orders */
   getCancelledOrders() : Observable<any>{
     return this.http.get(`${customerBaseURL}/cancelled`);
+  }
+
+  /* Change payment status of order */
+  changePaymentStatus(orderId) : Observable<any>{
+    return this.http.put(`${customerBaseURL}/orderPayment/${orderId}`,this.httpOptions)
   }
 }

@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
+//routes
 const authRoutes = require('./routes/authRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const carRoutes = require('./routes/carRoutes');
@@ -14,8 +17,8 @@ const leaderboard = require('./routes/leaderboard');
 const washerRoute = require('./routes/findWashers');
 const serviceAddonPromocode = require('./routes/service_addon_promocode');
 
-
 const app = express();
+
 
 //Connect to Customers Database
 const dbURI="mongodb+srv://Customer:123cust@cluster0.gulvu.mongodb.net/customers?retryWrites=true&w=majority";
@@ -28,6 +31,35 @@ app.use(cookieParser());
 app.use(cors());
 app.use('/uploads/images',express.static('uploads'));
 app.use('/api',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater,leaderboard, washerRoute]);
+
+
+/* 
+//Swagger Config
+// Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+    swaggerDefinition: {
+      info: {
+        version: "1.0.0",
+        title: "Customer API",
+        description: "Customer API Information",
+        contact: {
+          name: "Alisha Kuvalekar"
+        },
+        servers: [
+          {
+            host: "http://localhost:3000",
+            basePath :"/api"
+          },
+        ],
+      }
+    },
+    // ['.routes/*.js']
+    apis:  ['./routes/*.js']
+};
+
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs)); */
 
 
 

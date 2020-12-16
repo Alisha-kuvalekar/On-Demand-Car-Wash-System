@@ -25,7 +25,7 @@ export class WashrequestsComponent implements OnInit {
   acceptRequest(orderId){
     this.WashrequestService.acceptRequest(orderId)
       .subscribe(
-        res=> console.log(res),
+        res=> {console.log(res), this.ngOnInit()},
         err=> console.log(err)
       )
   }
@@ -34,7 +34,7 @@ export class WashrequestsComponent implements OnInit {
   rejectRequest(orderId){
     this.WashrequestService.rejectRequest(orderId)
       .subscribe(
-        res=> console.log(res),
+        res=> this.ngOnInit(),
         err=> console.log(err)
       )
   }

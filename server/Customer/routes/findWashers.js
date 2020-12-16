@@ -3,7 +3,17 @@ const { requireAuth } = require('../middleware/authMiddleware');
 const { washerDetails } = require('../models/readonlydata');
 const router = Router();
 
-//Get the leaderboard list
+/**
+ * @swagger
+ * /findWashers:
+ *  get:
+ *    description: Get the list of approved washers
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '401' :
+ *        description: Error occured
+ */
 router.get('/findWashers', requireAuth ,function(req,res){
     washerDetails.find({}, function(err, result){
         if(err){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faEnvelope} from '@fortawesome/free-regular-svg-icons'
 import { Router} from '@angular/router';
 import { faUserAlt} from '@fortawesome/free-solid-svg-icons';
+import { faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { AuthServiceService } from 'src/app/Services/Customer/auth/auth-service.service';
 import { AuthService } from 'src/app/Services/Washer/auth/auth.service';
 
@@ -14,6 +15,7 @@ import { AuthService } from 'src/app/Services/Washer/auth/auth.service';
 export class LoginComponent implements OnInit {
   user = faUserAlt;
   envelope = faEnvelope;
+  googleIcon = faGooglePlusG;
   selected="Customer";
   emailError ='';
   passwordError ='';
@@ -64,6 +66,15 @@ export class LoginComponent implements OnInit {
     }
 
      
+  }
+
+  /* Login with Google */
+  googleLogin(){
+    this._auth.googleLogin()
+      .subscribe(
+        res=>console.log(res),
+        err => console.log(err)
+      )
   }
  
 }

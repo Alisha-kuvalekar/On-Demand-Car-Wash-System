@@ -22,12 +22,17 @@ export class WasherMyorderService {
   }
 
   
-  /* get list of Completed orders */
-  completedOrders() : Observable<any> {
-    return this.http.get(`${washerBaseURL}/completed`);
+  /* get list of Completed adn paid orders */
+  completedAndPaidOrders() : Observable<any> {
+    return this.http.get(`${washerBaseURL}/completedAndPaid`);
   }
 
-  
+   /* get list of Completed adn paid orders */
+  completedAndUnpaidOrders() : Observable<any> {
+    return this.http.get(`${washerBaseURL}/completedAndUnpaid`);
+  }
+
+
   /* get list of Cancelled orders */
   cancelledOrders() : Observable<any> {
     return this.http.get(`${washerBaseURL}/cancelled`);

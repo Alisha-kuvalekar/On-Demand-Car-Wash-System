@@ -27,7 +27,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="zipcode">Zipcode</label>
-        <input type="text" class="form-control" id="zipcode" name="zipcode" [ngModel]="details[0][0]?.addresses.zipcode" (ngModelChange)="details[0][0].addresses.zipcode =$event" required >
+        <input type="number" class="form-control" id="zipcode" name="zipcode" [ngModel]="details[0][0]?.addresses.zipcode" (ngModelChange)="details[0][0].addresses.zipcode =$event" required >
       </div>
     </div>
     <div class="form-row">
@@ -45,7 +45,7 @@
     <button type="submit" class="btn btn-primary">CREATE</button>  &nbsp; 
     <button type="button" class="btn btn-warning" routerLink ="../editcustomerProfile">EDIT</button> <br> <br>
     <small class="text-danger">{{userError}}</small>
-    <div *ngIf="showMsg">
+    <div *ngIf="showMsg" class="message">
       {{message}}
     </div>
 </form>

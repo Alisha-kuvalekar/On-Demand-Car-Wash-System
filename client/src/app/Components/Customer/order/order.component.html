@@ -54,7 +54,10 @@
             <label for="instruction">6. Instruction to Washer(if any)</label>
             <textarea class="form-control" id="instruction" name="instruction" rows="3" ngModel ></textarea>
         </div>
-
+        
+        <div *ngIf="showMsg" class="float-left " class="message">
+                {{successMsg}}      
+        </div>
         <button  class="btn btn-primary m-3 float-right">SUBMIT ORDER</button>
     </form>
 </div>

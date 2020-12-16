@@ -42,4 +42,9 @@ export class OrderService {
   cancelOrder(id): Observable<any> {
     return this.http.put(`${customerBaseURL}/order/${id}`, this.httpOptions);
   }
+
+  /* Increase wash count after payment is done */
+  increaseWashCount(): Observable<any>{
+    return this.http.put(`${customerBaseURL}/washcount`, this.httpOptions);
+  }
 }

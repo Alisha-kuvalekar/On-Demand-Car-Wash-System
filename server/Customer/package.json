@@ -4,7 +4,7 @@
   "description": "customer microservice",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha || true"
   },
   "author": "Alisha",
   "license": "ISC",
@@ -23,6 +23,13 @@
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "swagger-jsdoc": "^6.0.0-rc.5",
+    "swagger-ui-express": "^4.1.5",
     "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
   }
 }

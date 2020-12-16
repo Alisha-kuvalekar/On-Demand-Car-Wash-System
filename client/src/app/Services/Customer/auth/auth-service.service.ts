@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { customerBaseURL } from 'src/environments/environment';
 
-import { Observable } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -42,5 +42,10 @@ export class AuthServiceService {
   /* Fetch Token */
   getToken(){ 
     return localStorage.getItem('cjwt')
+  }
+
+  /* Login with google */
+  googleLogin() : Observable<any>{
+    return this.http.get(`${customerBaseURL}/google`);
   }
 }

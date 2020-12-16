@@ -124,7 +124,12 @@ const orderSchema = new mongoose.Schema({
     instructionByUser:{
         type: String,
         lowercase: true
-    }      
+    },
+    isPaymentDone :{
+        type: Boolean,
+        default: false,
+        lowercase: true
+    }    
 });
 
 const order = orderConn.model('order',orderSchema);

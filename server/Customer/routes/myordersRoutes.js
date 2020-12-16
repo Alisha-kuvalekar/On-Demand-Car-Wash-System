@@ -12,11 +12,15 @@ router.get('/pending',requireAuth, orderController.get_pending_orders);
 //Get list of all in-process orders by customer id
 router.get('/inprocess',requireAuth, orderController.get_inprocess_orders);
 
-//Get list of all completed orders by customer id
-router.get('/completed',requireAuth, orderController.get_completed_orders);
+//Get list of all completed and Paid orders by customer id
+router.get('/completedAndPaid',requireAuth, orderController.get_completed_paid_orders);
+
+//Get list of all completed and UnPaid orders by customer id
+router.get('/completedAndUnpaid',requireAuth, orderController.get_completed_unpaid_orders);
 
 //get list of all cancelled orders by customer id
 router.get('/cancelled',requireAuth, orderController.get_cancelled_orders);
+
 
 
 module.exports = router;

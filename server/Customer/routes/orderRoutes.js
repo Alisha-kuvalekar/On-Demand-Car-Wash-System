@@ -16,5 +16,10 @@ router.post('/order', requireAuth, urlencodedparser, ordercontroller.create_orde
 //to cancel the order: updating status to cancelled
 router.put('/order/:id', requireAuth,urlencodedparser, ordercontroller.cancel_order);
 
+//Change payment done status
+router.put('/orderPayment/:id', requireAuth, urlencodedparser, ordercontroller.orderPaymentFulfilled);
+
+//increase count of wash for customer
+router.put('/washcount', requireAuth, urlencodedparser, ordercontroller.increaseWashCount)
 
 module.exports = router;

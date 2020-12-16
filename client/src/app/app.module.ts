@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxStripeModule} from 'ngx-stripe'
 
 import { AppRoutingModule , routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,9 @@ import { OrderService } from './Services/Customer/order/order.service';
 import { MyorderService } from './Services/Customer/myorder/myorder.service';
 
 
+
 import { AuthGuard } from './Guard/auth.guard';
+import { PaymentComponent } from './Components/Customer/payment/payment.component';
 
 
 @NgModule({ 
@@ -27,7 +30,8 @@ import { AuthGuard } from './Guard/auth.guard';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingComponents
+    routingComponents,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

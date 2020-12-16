@@ -25,10 +25,10 @@
               <td > {{req.dateTime}} </td>
               <td > {{req.userDetails.name}} </td>
               <td > {{req.isScheduledLater}} </td>
-              <td > {{req.totalcost}} </td> 
+              <td > ₹{{req.totalCost}} </td> 
               <td> 
                   <button class="btn btn-success" (click)="acceptRequest(req._id)">Accept</button> &nbsp;
-                  <button class="btn btn-danger" (click)="rejectRequest()">Reject</button>
+                  <button class="btn btn-danger" (click)="rejectRequest(req._id)">Reject</button>
               </td>
             </tr>
         </tbody>

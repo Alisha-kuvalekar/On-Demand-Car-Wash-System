@@ -15,3 +15,17 @@
     font-family: 'Padauk', sans-serif;
     font-size: 25px;
 }
+
+/* Modal styling */
+.modal-body input{
+    text-transform: uppercase;
+}
+
+.modal-body label,.modal-body h5{
+    color : #007bff;
+}
+
+.modal-body{
+    font-size: large;
+}
+

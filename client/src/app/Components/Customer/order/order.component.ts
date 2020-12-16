@@ -24,7 +24,8 @@ export class OrderComponent implements OnInit {
   washersList =[];
   addOns =[];
   plans =[];
-
+  showMsg : boolean ;
+  successMsg ='Your order has been booked.'
   constructor(private _orderService : OrderService, 
               private _profileService : ProfileService,
               private _plansService : PlansService,
@@ -36,6 +37,7 @@ export class OrderComponent implements OnInit {
     this.addOns =[];
     this.plans =[];
     this.washersList =[];
+    this.showMsg = false;
     this._profileService.getProfile()
       .subscribe(
         res => {
@@ -123,6 +125,7 @@ export class OrderComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res)
+          this.showMsg = true;
         },
         err => console.log(err)
       )

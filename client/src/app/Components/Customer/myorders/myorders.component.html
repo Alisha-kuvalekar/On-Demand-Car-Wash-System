@@ -1,192 +1,307 @@
 <h1 class="heading">MY ORDERS</h1>
 
-<h3 class="text-primary title">CURRENT ORDERS</h3>
-<hr>
+<ul class="nav nav-pills mb-5 mt-5 nav-justified bg-light" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-accpeted-tab" data-toggle="pill" href="#pills-accepted" role="tab" aria-controls="pills-accepted" aria-selected="true">ACCEPTED</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " id="pills-pending-tab" data-toggle="pill" href="#pills-pending" role="tab" aria-controls="pills-pending" aria-selected="false">PENDING</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-inprocess-tab" data-toggle="pill" href="#pills-inprocess" role="tab" aria-controls="pills-inprocess" aria-selected="false">IN-PROCESS</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="pills-completed-tab" data-toggle="pill" href="#pills-completed" role="tab" aria-controls="pills-completed" aria-selected="false">COMPLETED</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="pills-cancelled-tab" data-toggle="pill" href="#pills-cancelled" role="tab" aria-controls="pills-cancelled" aria-selected="false">CANCELLED</a>
+  </li>
+</ul>
 
-<!-- List of user's accpeted Orders -->
-<div id="accepted">
-    <p class="subtitle">Accepted Orders</p>
-    <div *ngIf="accepted.length==0" class="text-center d-inline">
-        <p>No Accepted orders to show</p>
+<!-- TAB CONTENT -->
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-accepted" role="tabpanel" aria-labelledby="pills-accepted-tab">
+    <!-- List of user's accpeted Orders -->
+    <div id="accepted">
+      <p class="subtitle">Accepted Orders</p>
+      <div *ngIf="accepted.length==0" class="text-center d-inline">
+          <p>No Accepted orders to show</p>
+      </div>
+      <table *ngIf="accepted.length !=0" class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Package</th>
+                <th scope="col">Addon</th>
+                <th scope="col">Car</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Address</th>
+                <th scope="col">Washer Name</th>
+                <th scope="col">Total Cost</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let s of accepted; let i=index;">
+                <th scope="row">{{i}}</th>
+                <td>{{s.package}}</td>
+                <td>{{s.addOn}}</td>
+                <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
+                <td>{{s.dateTime}}</td>
+                <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
+                <td>{{s.washerDetails.name}}</td>
+                <td>₹{{s.totalCost}}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="cancelOrder(s._id)">Cancel</button>
+                </td>
+              </tr>
+            </tbody>
+      </table>
     </div>
-    <table *ngIf="accepted.length !=0" class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Package</th>
-              <th scope="col">Addon</th>
-              <th scope="col">Car</th>
-              <th scope="col">Date & Time</th>
-              <th scope="col">Address</th>
-              <th scope="col">Washer Name</th>
-              <th scope="col">Total Cost</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr  *ngFor="let s of accepted; let i=index;">
-              <th scope="row">{{i}}</th>
-              <td>{{s.package}}</td>
-              <td>{{s.addOn}}</td>
-              <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
-              <td>{{s.dateTime}}</td>
-              <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
-              <td>{{s.washerDetails.name}}</td>
-              <td>₹{{s.totalCost}}</td>
-              <td>
-                <button class="btn btn-danger" (click)="cancelOrder(s._id)">Cancel</button>
-              </td>
-            </tr>
-          </tbody>
-    </table>
+  </div>
+
+  <div class="tab-pane fade" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">
+    <!-- List of user's pending orders  -->
+    <div id="pending">
+      <p  class="subtitle">Pending Orders</p>
+      <div *ngIf="pending.length==0" class="text-center">
+          <p>No Pending orders to show</p>
+      </div>
+      <table *ngIf="pending.length!=0" class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Package</th>
+                <th scope="col">Addon</th>
+                <th scope="col">Car</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Address</th>
+                <th scope="col">Washer Name</th>
+                <th scope="col">Total Cost</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let s of pending; let i=index;">
+                <th scope="row">{{i}}</th>
+                <td>{{s.package}}</td>
+                <td>{{s.addOn}}</td>
+                <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
+                <td>{{s.dateTime}}</td>
+                <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
+                <td>{{s.washerDetails.name}}</td>
+                <td>₹{{s.totalCost}}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="cancelOrder(s._id)">Cancel</button>
+                </td>
+              </tr>
+            </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="tab-pane fade" id="pills-inprocess" role="tabpanel" aria-labelledby="pills-inprocess-tab">
+      <!-- List of user's in-process orders  -->
+      <div id="pending">
+        <p  class="subtitle">In-process Orders</p>
+        <div *ngIf="inprocess.length==0" class="text-center">
+            <p>No inprocess orders to show</p>
+        </div>
+        <table *ngIf="inprocess.length!=0" class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Package</th>
+                  <th scope="col">Addon</th>
+                  <th scope="col">Car</th>
+                  <th scope="col">Date & Time</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Washer Name</th>
+                  <th scope="col">Total Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let s of inprocess; let i=index;">
+                  <th scope="row">{{i}}</th>
+                  <td>{{s.package}}</td>
+                  <td>{{s.addOn}}</td>
+                  <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
+                  <td>{{s.dateTime}}</td>
+                  <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
+                  <td>{{s.washerDetails.name}}</td>
+                  <td>₹{{s.totalCost}}</td>
+                </tr>
+              </tbody>
+        </table>
+      </div>
+
+  </div>
+  <div class="tab-pane fade" id="pills-completed" role="tabpanel" aria-labelledby="pills-completed-tab">
+      <!-- GET COMPLETED BUT UNPAID ORDERS  -->
+      <div id="completedUnpaid" class="mb-3">
+        <p  class="subtitle">Unpaid Orders</p>
+        <div *ngIf="completedUnpaid.length==0" class="text-center">
+            <p>No orders to show</p>
+        </div>
+        <table *ngIf="completedUnpaid.length!=0" class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Package</th>
+                  <th scope="col">Addon</th>
+                  <th scope="col">Car</th>
+                  <th scope="col">Date & Time</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Washer Name</th>
+                  <th scope="col">Total Cost</th>
+                  <th scope="col">Pay Now</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let s of completedUnpaid; let i=index;">
+                  <th scope="row">{{i}}</th>
+                  <td>{{s.package}}</td>
+                  <td>{{s.addOn}}</td>
+                  <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
+                  <td>{{s.dateTime}}</td>
+                  <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
+                  <td>{{s.washerDetails.name}}</td>
+                  <td >{{s.totalCost}}</td>
+                  <td>
+                    <button *ngIf="showButton" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" (click) = "orderData(s)">
+                      PAY NOW
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+        </table>
+      </div>
+
+      <!-- GET COMPLETED AND PAID ORDERS -->
+      <div id="completedUnpaid">
+        <p  class="subtitle">Paid Orders</p>
+        <div *ngIf="completedPaid.length==0" class="text-center">
+            <p>No orders to show</p>
+        </div>
+        <table *ngIf="completedPaid.length!=0" class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Package</th>
+                  <th scope="col">Addon</th>
+                  <th scope="col">Car</th>
+                  <th scope="col">Date & Time</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Washer Name</th>
+                  <th scope="col">Total Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let s of completedPaid; let i=index;">
+                  <th scope="row">{{i}}</th>
+                  <td>{{s.package}}</td>
+                  <td>{{s.addOn}}</td>
+                  <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
+                  <td>{{s.dateTime}}</td>
+                  <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
+                  <td>{{s.washerDetails.name}}</td>
+                  <td >{{s.totalCost}}</td>
+                </tr>
+              </tbody>
+        </table>
+      </div>
+  </div>
+  <div class="tab-pane fade " id="pills-cancelled" role="tabpanel" aria-labelledby="pills-cancelled-tab">
+      <!-- List of user's cancelled orders  -->
+      <div id="cancelled ">
+        <p  class="subtitle">Cancelled Orders</p>
+        <div *ngIf="cancelled.length == 0" class="text-center">
+            <p>No Cancelled orders to show</p>
+        </div>
+        <table *ngIf="cancelled.length !=0" class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Package</th>
+                  <th scope="col">Addon</th>
+                  <th scope="col">Car</th>
+                  <th scope="col">Date & Time</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Washer Name</th>
+                  <th scope="col">Total Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let s of cancelled; let i=index;">
+                  <th scope="row">{{i}}</th>
+                  <td>{{s.package}}</td>
+                  <td>{{s.addOn}}</td>
+                  <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
+                  <td>{{s.dateTime}}</td>
+                  <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
+                  <td>{{s.washerDetails.name}}</td>
+                  <td>₹{{s.totalCost}}</td>
+                </tr>
+              </tbody>
+        </table>
+      </div>
+  </div>
 </div>
-<br> <br>
 
-<!-- List of user's pending orders  -->
-<div id="pending">
-    <p  class="subtitle">Pending Orders</p>
-    <div *ngIf="pending.length==0" class="text-center">
-        <p>No Pending orders to show</p>
+
+
+
+
+
+<!-- The Payment Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header bg-primary " style="color: white;">
+        <h4 class="modal-title">Speed Wash : Order Payment</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h5 style="text-decoration: underline;">Order ID : {{data.id}}</h5>
+        <br>
+        <form>
+          <div class="form-group row">
+            <label for="staticpackage" class="col-sm-4 col-form-label">Package : </label>
+            <div class="col-sm-8">
+              <input type="text" readonly class="form-control-plaintext" id="staticpackage" value="{{data.package}}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticaddon" class="col-sm-4 col-form-label">Addon : </label>
+            <div class="col-sm-8">
+              <input type="text" readonly class="form-control-plaintext" id="staticaddon" value="{{data.addOn}}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticwashername" class="col-sm-4 col-form-label">Washer Name : </label>
+            <div class="col-sm-8">
+              <input type="text" readonly class="form-control-plaintext" id="staticwashername" value="{{data.washername}}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticcost" class="col-sm-4 col-form-label">Total Cost : </label>
+            <div class="col-sm-8">
+              <input type="number" readonly class="form-control-plaintext" id="staticcost" name="staticcost" value="{{data.cost}}" >
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <div class="paypal-checkout-btn" ></div>
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+      </div>
+      
     </div>
-    <table *ngIf="pending.length!=0" class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Package</th>
-              <th scope="col">Addon</th>
-              <th scope="col">Car</th>
-              <th scope="col">Date & Time</th>
-              <th scope="col">Address</th>
-              <th scope="col">Washer Name</th>
-              <th scope="col">Total Cost</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr  *ngFor="let s of pending; let i=index;">
-              <th scope="row">{{i}}</th>
-              <td>{{s.package}}</td>
-              <td>{{s.addOn}}</td>
-              <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
-              <td>{{s.dateTime}}</td>
-              <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
-              <td>{{s.washerDetails.name}}</td>
-              <td>₹{{s.totalCost}}</td>
-              <td>
-                <button class="btn btn-danger" (click)="cancelOrder(s._id)">Cancel</button>
-              </td>
-            </tr>
-          </tbody>
-    </table>
-</div>
-
-<br> <br>
-
-<!-- List of user's in-process orders  -->
-<div id="pending">
-    <p  class="subtitle">In-process Orders</p>
-    <div *ngIf="inprocess.length==0" class="text-center">
-        <p>No inprocess orders to show</p>
-    </div>
-    <table *ngIf="inprocess.length!=0" class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Package</th>
-              <th scope="col">Addon</th>
-              <th scope="col">Car</th>
-              <th scope="col">Date & Time</th>
-              <th scope="col">Address</th>
-              <th scope="col">Washer Name</th>
-              <th scope="col">Total Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr  *ngFor="let s of inprocess; let i=index;">
-              <th scope="row">{{i}}</th>
-              <td>{{s.package}}</td>
-              <td>{{s.addOn}}</td>
-              <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
-              <td>{{s.dateTime}}</td>
-              <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
-              <td>{{s.washerDetails.name}}</td>
-              <td>₹{{s.totalCost}}</td>
-            </tr>
-          </tbody>
-    </table>
-</div>
-
-<br> <br>
-
-<h3 class="text-primary title">PAST ORDERS</h3>
-<hr>
-
-<!-- List of user's completed orders  -->
-<div id="completed">
-    <p  class="subtitle">Completed Orders</p>
-    <div *ngIf="completed.length==0" class="text-center">
-        <p>No Completed orders to show</p>
-    </div>
-    <table *ngIf="completed.length!=0" class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Package</th>
-              <th scope="col">Addon</th>
-              <th scope="col">Car</th>
-              <th scope="col">Date & Time</th>
-              <th scope="col">Address</th>
-              <th scope="col">Washer Name</th>
-              <th scope="col">Total Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr  *ngFor="let s of completed; let i=index;">
-              <th scope="row">{{i}}</th>
-              <td>{{s.package}}</td>
-              <td>{{s.addOn}}</td>
-              <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
-              <td>{{s.dateTime}}</td>
-              <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
-              <td>{{s.washerDetails.name}}</td>
-              <td>₹{{s.totalCost}}</td>
-            </tr>
-          </tbody>
-    </table>
-</div>
-
-<br> <br>
-
-<!-- List of user's cancelled orders  -->
-<div id="cancelled">
-    <p  class="subtitle">Cancelled Orders</p>
-    <div *ngIf="cancelled.length == 0" class="text-center">
-        <p>No Cancelled orders to show</p>
-    </div>
-    <table *ngIf="cancelled.length !=0" class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Package</th>
-              <th scope="col">Addon</th>
-              <th scope="col">Car</th>
-              <th scope="col">Date & Time</th>
-              <th scope="col">Address</th>
-              <th scope="col">Washer Name</th>
-              <th scope="col">Total Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr  *ngFor="let s of cancelled; let i=index;">
-              <th scope="row">{{i}}</th>
-              <td>{{s.package}}</td>
-              <td>{{s.addOn}}</td>
-              <td>{{s.carInfo.carName}},{{s.carInfo.carModel}}</td>
-              <td>{{s.dateTime}}</td>
-              <td>{{s.address.country}}, {{s.address.city}}, {{s.address.address}}</td>
-              <td>{{s.washerDetails.name}}</td>
-              <td>₹{{s.totalCost}}</td>
-            </tr>
-          </tbody>
-    </table>
+  </div>
 </div>
