@@ -8,18 +8,49 @@ const urlencodedParser = bodyParser.urlencoded({ extended: true})
 const router = Router();
 
 
-//Profile route handlers
-
 //Get profile page
 //router.get('/profile',  requireAuth, profileController.get_profile);
 
-//Create new profile of customer
+/**
+ * @swagger
+ * /profile:
+ *  post:
+ *    description: Create new profile
+ *    tags : ['profile']
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.post('/profile', requireAuth,  urlencodedParser, profileController.post_profile);
 
-//Get individual customer's details
+/**
+ * @swagger
+ * /profile:
+ *  get:
+ *    tags : ['profile']
+ *    description: get the profile details of a customer
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/profile', requireAuth, urlencodedParser,profileController.get_specific_profile);
 
-//Update customer's details
+/**
+ * @swagger
+ * /profile:
+ *  put:
+ *    tags : ['profile']
+ *    description: update the profile details of the customer
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.put('/profile', requireAuth, urlencodedParser,profileController.update_profile);
 
 

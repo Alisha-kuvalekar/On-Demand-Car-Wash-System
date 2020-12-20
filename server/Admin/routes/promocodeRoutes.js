@@ -7,7 +7,7 @@ const router = Router();
 const urlencodedparser = bodyParser.urlencoded({extended: true});
 
 
-//GET all promocodes details
+
 router.get('/promocodes',  requireAuth, promocodeController.get_promocodes);
 
 //GET a specific promocode details

@@ -6,19 +6,74 @@ const { requireAuth } = require('../middleware/authMiddleware');
 const router = Router();
 const urlencodedparser = bodyParser.urlencoded({extended: true});
 
-//get all cars
+/**
+ * @swagger
+ * /cars:
+ *  get:
+ *    tags: ['cars']
+ *    description: Get all cars
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/cars', requireAuth, carController.get_cars);
 
-//get one specific car
+/**
+ * @swagger
+ * /cars/:id :
+ *  get:
+ *    tags: ['cars']
+ *    description: Get a specific car by id
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/cars/:id',requireAuth, carController.get_car);
 
-//create new car 
+/**
+ * @swagger
+ * /cars:
+ *  post:
+ *    tags: ['cars']
+ *    description: create a new car 
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.post('/cars',requireAuth, urlencodedparser,carController.post_cars);
 
-//update a car's details
+/**
+ * @swagger
+ * /cars/:id :
+ *  put:
+ *    tags: ['cars']
+ *    description: update a car by its id
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.put('/cars/:id',requireAuth, urlencodedparser,carController.put_cars);
 
-//delete a car
+/**
+ * @swagger
+ * /cars:
+ *  delete:
+ *    tags: ['cars']
+ *    description: delete a car by its id
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.delete('/cars/:id',requireAuth, carController.delete_cars);
 
 

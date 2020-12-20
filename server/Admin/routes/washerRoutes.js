@@ -9,19 +9,74 @@ const router = Router();
 const urlencodedparser = bodyParser.urlencoded({extended: true});
 
 
-//get all washers details
+/**
+ * @swagger
+ * /washers:
+ *  get:
+ *    tags: ['Washers']
+ *    description: get all washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400':
+ *        description: Error occured
+ */
 router.get('/washers', requireAuth, washerController.get_all_washers);
 
-//get washers with approved status as false
+/**
+ * @swagger
+ * /washer:
+ *  get:
+ *    tags: ['Washers']
+ *    description: get unapproved washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400':
+ *        description: Error occured
+ */
 router.get('/washer', requireAuth, washerController.get_washers);
 
-//Accept(update) washer
+/**
+ * @swagger
+ * /washer/:id :
+ *  put:
+ *    tags: ['Washers']
+ *    description: update status of washer as approved
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400':
+ *        description: Error occured
+ */
 router.put('/washer/:id', requireAuth, urlencodedparser, washerController.update_washer);
 
-//Reject(delete) washer
+/**
+ * @swagger
+ * /washer/:id :
+ *  delete:
+ *    tags: ['Washers']
+ *    description: Delete/Reject a washer
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400':
+ *        description: Error occured
+ */
 router.delete('/washer/:id', requireAuth, washerController.delete_washer);
 
-//count washers
+/**
+ * @swagger
+ * /countWashers :
+ *  get:
+ *    tags: ['Washers']
+ *    description: get count of approved washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400':
+ *        description: Error occured
+ */
 router.get('/countWashers', requireAuth, washerController.count_washers);
 
 module.exports = router;

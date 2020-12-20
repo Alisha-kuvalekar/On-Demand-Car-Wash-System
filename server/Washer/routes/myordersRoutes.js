@@ -3,22 +3,88 @@ const orderController = require('../controllers/myordersController');
 const { requireAuth } = require('../middleware/authMiddleware');
 const router = Router();
 
-//Get list of all accepted orders by washer id
+/**
+ * @swagger
+ * /accepted:
+ *  get:
+ *    tags: ['My orders']
+ *    description: Get list of all accepted washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/accepted', requireAuth, orderController.get_accepted_orders);
 
-//Get list of all pending orders by washer id
+/**
+ * @swagger
+ * /pending:
+ *  get:
+ *    tags: ['My orders']
+ *    description: Get list of all pending washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/pending',requireAuth, orderController.get_pending_orders);
 
-//Get list of all in-process orders by washer id
+/**
+ * @swagger
+ * /inprocess:
+ *  get:
+ *    tags: ['My orders']
+ *    description: Get list of all inprocess washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/inprocess',requireAuth, orderController.get_inprocess_orders);
 
-//Get list of all completed and paid orders by washer id
+/**
+ * @swagger
+ * /completedAndPaid:
+ *  get:
+ *    tags: ['My orders']
+ *    description: Get list of all completed and paid washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/completedAndPaid',requireAuth, orderController.get_completed_paid_orders);
 
-//Get list of all completed and paid orders by washer id
+/**
+ * @swagger
+ * /completedAndUnpaid:
+ *  get:
+ *    tags: ['My orders']
+ *    description: Get list of all completed but unpaid washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/completedAndUnpaid',requireAuth, orderController.get_completed_unpaid_orders);
 
-//get list of all cancelled orders by washer id
+/**
+ * @swagger
+ * /cancelled:
+ *  get:
+ *    tags: ['My orders']
+ *    description: Get list of all cancelled washers
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/cancelled',requireAuth, orderController.get_cancelled_orders);
 
 

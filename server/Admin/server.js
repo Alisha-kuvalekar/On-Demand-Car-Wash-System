@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 //Importing routes
 const servicePlanRoutes = require('./routes/serviceplanRoutes');
@@ -25,7 +27,30 @@ mongoose.connect( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCre
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-app.use('/api', [servicePlanRoutes, promocodeRoutes,addonRoutes, authRoutes,carRoutes,washerRoutes,leaderboard, customerRoutes, orderRoutes]);
+app.use('/', [servicePlanRoutes, promocodeRoutes,addonRoutes, authRoutes,carRoutes,washerRoutes,leaderboard, customerRoutes, orderRoutes]);
+
+//Swagger Config
+// Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+    swaggerDefinition: {
+      info: {
+        version: "1.0.0",
+        title: "ADMIN API",
+        description: "API's from admin Microservice",
+        contact: {
+          name: "Alisha Kuvalekar"
+        },
+        
+       server :["http://localhost:2000"],
+       
+      }
+    },
+    // ['.routes/*.js']
+    apis:  ['./routes/*.js']
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs)); 
 
 
 //Listen to port : default is 2000
@@ -33,3 +58,6 @@ const port = process.env.PORT || 2000;
 app.listen(port,function(){
     console.log("Listening to port:",port);
 })
+
+
+module.exports = app;

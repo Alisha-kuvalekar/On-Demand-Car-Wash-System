@@ -4,7 +4,7 @@
   "description": "customer microservice",
   "main": "server.js",
   "scripts": {
-    "test": "mocha || true"
+    "test": "mocha"
   },
   "author": "Alisha",
   "license": "ISC",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "mocha": "^8.2.1"
   }
 }

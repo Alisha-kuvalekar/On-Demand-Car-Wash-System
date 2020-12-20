@@ -122,7 +122,7 @@ export class MyordersComponent implements OnInit, AfterViewChecked {
         /* Incrementing the wash count for the customer */
         this._orderService.increaseWashCount()
             .subscribe(
-              res=> console.log(res),
+              res=> this.ngOnInit(),
               err=> console.log(err)
             )
       })

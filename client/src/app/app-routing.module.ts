@@ -78,15 +78,15 @@ const routes: Routes = [
         {path : 'payment', component : PaymentComponent, canActivate :[AuthGuard]}
       ]
   },
-  { path: 'washerDashboard', component:WasherdashboardComponent,
+  { path: 'washerDashboard', component:WasherdashboardComponent,  canActivate:[WasherguardGuard],
       children:[
-        {path: 'washerHome', component: WasherHomeComponent},
-        {path: 'washerProfile', component: WasherprofileComponent, /* canActivate:[WasherguardGuard] */},
-        {path: 'editwasherProfile', component: WasherEditProfileComponent},
-        {path: 'washRequests', component: WashrequestsComponent},
-        {path: 'washerOrders', component: WasherOrdersComponent},
-        {path: 'washerMyOrders',component: WasherMyOrdersComponent},
-        {path: 'washerScheduledOrders', component: WasherScheduledOrdersComponent}
+        {path: 'washerHome', component: WasherHomeComponent,  canActivate:[WasherguardGuard]},
+        {path: 'washerProfile', component: WasherprofileComponent,  canActivate:[WasherguardGuard] },
+        {path: 'editwasherProfile', component: WasherEditProfileComponent,  canActivate:[WasherguardGuard]},
+        {path: 'washRequests', component: WashrequestsComponent,  canActivate:[WasherguardGuard]},
+        {path: 'washerOrders', component: WasherOrdersComponent,  canActivate:[WasherguardGuard]},
+        {path: 'washerMyOrders',component: WasherMyOrdersComponent,  canActivate:[WasherguardGuard]},
+        {path: 'washerScheduledOrders', component: WasherScheduledOrdersComponent,  canActivate:[WasherguardGuard]}
       ]  
   }
 ];

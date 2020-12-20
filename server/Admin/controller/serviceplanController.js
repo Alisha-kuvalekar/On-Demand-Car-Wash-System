@@ -63,7 +63,7 @@ module.exports.post_Service = function(req,res){
     servicePlan.create(serviceDetails, function(err, result){
         if(err){
             const error= handleErrors(err);
-            req.status(400).json(error);
+            res.status(400).json(error);
         } else {
             res.status(201).json(result);
         }

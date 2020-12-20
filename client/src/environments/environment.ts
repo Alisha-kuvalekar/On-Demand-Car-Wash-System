@@ -6,9 +6,9 @@ export const environment = {
   production: false
 };
 
-export const customerBaseURL = 'http://127.0.0.1:3000/api';
-export const washerBaseURL = 'http://127.0.0.1:4000/api';
-export const adminBaseURL = 'http://127.0.0.1:2000/api';
+export const customerBaseURL = 'http://127.0.0.1:3000';
+export const washerBaseURL = 'http://127.0.0.1:4000';
+export const adminBaseURL = 'http://127.0.0.1:2000';
 
 /*
  * For easier debugging in development mode, you can import the following file

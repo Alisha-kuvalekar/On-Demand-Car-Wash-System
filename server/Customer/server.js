@@ -30,10 +30,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 app.use('/uploads/images',express.static('uploads'));
-app.use('/api',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater,leaderboard, washerRoute]);
+app.use('/',[authRoutes,profileRoutes,orderRoutes,carRoutes,serviceAddonPromocode,myordersRoutes,scheduledLater,leaderboard, washerRoute]);
 
 
-/* 
+ 
 //Swagger Config
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
@@ -41,16 +41,13 @@ const swaggerOptions = {
       info: {
         version: "1.0.0",
         title: "Customer API",
-        description: "Customer API Information",
+        description: "API's from customer Microservice",
         contact: {
           name: "Alisha Kuvalekar"
         },
-        servers: [
-          {
-            host: "http://localhost:3000",
-            basePath :"/api"
-          },
-        ],
+        
+       server :["http://localhost:3000"],
+       
       }
     },
     // ['.routes/*.js']
@@ -59,7 +56,7 @@ const swaggerOptions = {
 
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs)); */
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs)); 
 
 
 
@@ -68,3 +65,6 @@ const port = process.env.PORT || 3000;
 app.listen( port , function(){
     console.log("listening to port ",port);
 });
+
+
+module.exports = app;

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { WasherApprovalComponent } from './washer-approval.component';
 
 describe('WasherApprovalComponent', () => {
@@ -8,6 +8,7 @@ describe('WasherApprovalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports :[RouterTestingModule],
       declarations: [ WasherApprovalComponent ]
     })
     .compileComponents();

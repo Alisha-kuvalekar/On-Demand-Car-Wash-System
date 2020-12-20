@@ -3,7 +3,18 @@ const { requireAuth } = require('../middleware/authMiddleware');
 const {customer} = require('../models/customerDetails');
 const router = Router();
 
-//Get the leaderboard list
+/**
+ * @swagger
+ * /customersCount:
+ *  get:
+ *    tags: ['Customer']
+ *    description: Get the total customer count
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/customersCount', requireAuth ,function(req,res){
     customer.count({},function(err,doc){
         if(err){

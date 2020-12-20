@@ -21,10 +21,41 @@ const createToken =(id)=>{
 
 //Routes for signup
 router.get('/signup', authController.get_signup);
+
+/**
+ * @swagger
+ * /signup:
+ *  post:
+ *    tags: ['auth']
+ *    description: signup a new customer
+ *    parameters:
+ *          email :
+ *              type :string
+ *          password:
+ *              type: string
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.post('/signup', urlencodedParser ,authController.post_signup);
 
 //Routes for login
 router.get('/login', authController.get_login);
+
+/**
+ * @swagger
+ * /login:
+ *  post:
+ *    tags: ['auth']
+ *    description: login the customer
+ *    responses:
+ *      '201':
+ *        description: successfully get all cars
+ *      '400' :
+ *        description: Error occured
+ */
 router.post('/login',urlencodedParser ,authController.post_login);
 
 //Route for logout

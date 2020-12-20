@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { WasherEditProfileComponent } from './washer-edit-profile.component';
 
 describe('WasherEditProfileComponent', () => {
@@ -8,6 +8,7 @@ describe('WasherEditProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports :[RouterTestingModule],
       declarations: [ WasherEditProfileComponent ]
     })
     .compileComponents();

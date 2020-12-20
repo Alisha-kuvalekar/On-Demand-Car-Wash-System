@@ -3,7 +3,18 @@ const { requireAuth } = require('../middleware/authMiddleware');
 const {customerDetails }= require('../models/customerDetails');
 const router = Router();
 
-//Get the leaderboard list
+/**
+ * @swagger
+ * /leaderboard:
+ *  get:
+ *    tags: ['Leaderboard']
+ *    description: Get the leaderboard list
+ *    responses:
+ *      '201':
+ *        description: A successful response
+ *      '400' :
+ *        description: Error occured
+ */
 router.get('/leaderboard', requireAuth ,function(req,res){
     customerDetails.find({},function(err,doc){
         if(err){
