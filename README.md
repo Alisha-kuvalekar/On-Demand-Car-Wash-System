@@ -39,3 +39,7 @@ npm run test
 ## Built with 
 
 [Visual studio code](https://code.visualstudio.com/)
+
+## License
+
+The project uses []()
