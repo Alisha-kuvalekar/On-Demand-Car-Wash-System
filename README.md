@@ -42,4 +42,4 @@ npm test
 
 ## License
 
-The project uses []()
+The project uses [MIT](https://choosealicense.com/licenses/mit/) license.
