@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HeaderComponent } from './header.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -9,8 +10,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports :[RouterTestingModule],
-      declarations: [ HeaderComponent ]
+      imports :[RouterTestingModule, HttpClientTestingModule],
+      declarations: [ HeaderComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

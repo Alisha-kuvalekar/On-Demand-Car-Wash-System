@@ -23,17 +23,23 @@ router.get('/services',  requireAuth, serviceplanController.get_Services);
 
 /**
  * @swagger
- * /services/:id :
+ * /services/{id} :
  *  get:
  *    tags: ['Services']
  *    description: Get a specific service
+ *    parameters:
+ *      - name: id
+ *        description: id to search a service
+ *        in: path
+ *        type: string
+ *        required: true
  *    responses:
  *      '201':
  *        description: A successful response
  *      '400':
  *        description: Error occured
  */
-router.get('/services/:id', requireAuth, serviceplanController.get_Service);
+router.get('/services/:id', /* requireAuth, */ serviceplanController.get_Service);
 
 /**
  * @swagger
@@ -79,10 +85,35 @@ router.post('/services', requireAuth, urlencodedParser ,serviceplanController.po
 
 /**
  * @swagger
- * /services/:id :
+ * /services/{id}:
  *  put:
  *    tags: ['Services']
  *    description: update a service
+ *    parameters:
+ *      - name: id
+ *        description: id to updates a service
+ *        in: path
+ *        type: string
+ *        required: true
+ *      - name: reqBody
+ *        description: update request body
+ *        in: body
+ *        schema: 
+ *           type: object
+ *           properties:
+ *              name:
+ *                  type: string
+ *              time:
+ *                  type: string
+ *              cost:
+ *                  type: number
+ *              description:
+ *                  type: string
+ *           required: 
+ *              - name
+ *              - time
+ *              - cost
+ *              - description
  *    responses:
  *      '201':
  *        description: A successful response
@@ -93,17 +124,23 @@ router.put('/services/:id', requireAuth, urlencodedParser ,serviceplanController
 
 /**
  * @swagger
- * /services/:id :
+ * /services/{id} :
  *  delete:
  *    tags: ['Services']
  *    description: Delete the service
+ *    parameters:
+ *      - name: id
+ *        description: id to delete a service
+ *        in: path
+ *        type: string
+ *        required: true
  *    responses:
  *      '201':
  *        description: A successful response
  *      '400':
  *        description: Error occured
  */
-router.delete('/services/:id', requireAuth, urlencodedParser ,serviceplanController.delete_Service);
+router.delete('/services/:id',  requireAuth,  urlencodedParser ,serviceplanController.delete_Service);
 
 
 module.exports = router;

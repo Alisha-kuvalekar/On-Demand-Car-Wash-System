@@ -11,7 +11,8 @@ describe('SignupComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports :[RouterTestingModule],
-      declarations: [ SignupComponent ]
+      declarations: [ SignupComponent ],
+      schemas :[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

@@ -10,7 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { PaymentComponent } from './Components/Customer/payment/payment.component';
+
 
 import { AuthServiceService } from './Services/Customer/auth/auth-service.service';
 import { TokenInterceptorService } from './Services/Customer/auth/token-interceptor.service';
@@ -41,8 +41,7 @@ import { WashrequestService } from './Services/Washer/washrequests/washrequest.s
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingComponents,
-    PaymentComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,

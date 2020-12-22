@@ -79,6 +79,7 @@ describe("Admin service API", ()=> {
                 .end((err,response)=>{
                     response.should.have.status(201);
                     response.body.should.be.a('object');
+                    result = response.body._id;
                     done()
                 })
         })
@@ -90,6 +91,7 @@ describe("Admin service API", ()=> {
             }
             chai.request(server)
                 .get("/services")
+                .send(serviceDetails)
                 .end((err,response)=>{
                     response.should.have.status(401);
                     response.body.should.be.a('object');
@@ -110,7 +112,7 @@ describe("Admin service API", ()=> {
                 cost :  5999,
                 description : "Platinum wash includes platinum stuff with your car."
             }
-            const serviceId = '5fd714592301250588fbec33'
+            const serviceId = result
             chai.request(server)
                 .put(`/services/${serviceId}`)
                 .send(newserviceDetails)
@@ -128,7 +130,7 @@ describe("Admin service API", ()=> {
                 time : "40",
                 cost :  5999
             }
-            const serviceId = '5fd714592301250588fbec33'
+            const serviceId = result
             chai.request(server)
                 .put(`/services/${serviceId}`)
                 .send(newserviceDetails)
@@ -147,7 +149,7 @@ describe("Admin service API", ()=> {
    */
     describe("DELETE /services",()=> {
         it("it should delete the service by id",(done)=> {
-            const serviceId ='5fd714592301250588fbec33'
+            const serviceId = result
             chai.request(server)
                 .delete(`/services/${serviceId}`)
                 .set({"Authorization": jwtToken})

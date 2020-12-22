@@ -22,7 +22,6 @@ import { EditprofileComponent } from './Components/Customer/editprofile/editprof
 import { LeaderboardComponent } from './Components/Customer/leaderboard/leaderboard.component';
 import { MyordersComponent } from './Components/Customer/myorders/myorders.component';
 import { OrderComponent } from './Components/Customer/order/order.component';
-import { PaymentComponent } from './Components/Customer/payment/payment.component';
 import { ScheduledOrderComponent } from './Components/Customer/scheduled-order/scheduled-order.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -31,7 +30,6 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { WasherEditProfileComponent } from './Components/Washer/washer-edit-profile/washer-edit-profile.component';
 import { WasherHomeComponent } from './Components/Washer/washer-home/washer-home.component';
 import { WasherMyOrdersComponent } from './Components/Washer/washer-my-orders/washer-my-orders.component';
-import { WasherOrdersComponent } from './Components/Washer/washer-orders/washer-orders.component';
 import { WasherScheduledOrdersComponent } from './Components/Washer/washer-scheduled-orders/washer-scheduled-orders.component';
 import { WasherdashboardComponent } from './Components/Washer/washerdashboard/washerdashboard.component';
 import { WasherprofileComponent } from './Components/Washer/washerprofile/washerprofile.component';
@@ -74,8 +72,7 @@ const routes: Routes = [
         {path: 'customerOrder',component: OrderComponent, canActivate :[AuthGuard] },
         {path: 'customerScheduledOrders', component: ScheduledOrderComponent, canActivate :[AuthGuard] },
         {path: 'customerOrders', component : MyordersComponent, canActivate :[AuthGuard] },
-        {path: 'leaderboard', component: LeaderboardComponent, canActivate :[AuthGuard] },
-        {path : 'payment', component : PaymentComponent, canActivate :[AuthGuard]}
+        {path: 'leaderboard', component: LeaderboardComponent, canActivate :[AuthGuard] }
       ]
   },
   { path: 'washerDashboard', component:WasherdashboardComponent,  canActivate:[WasherguardGuard],
@@ -84,7 +81,6 @@ const routes: Routes = [
         {path: 'washerProfile', component: WasherprofileComponent,  canActivate:[WasherguardGuard] },
         {path: 'editwasherProfile', component: WasherEditProfileComponent,  canActivate:[WasherguardGuard]},
         {path: 'washRequests', component: WashrequestsComponent,  canActivate:[WasherguardGuard]},
-        {path: 'washerOrders', component: WasherOrdersComponent,  canActivate:[WasherguardGuard]},
         {path: 'washerMyOrders',component: WasherMyOrdersComponent,  canActivate:[WasherguardGuard]},
         {path: 'washerScheduledOrders', component: WasherScheduledOrdersComponent,  canActivate:[WasherguardGuard]}
       ]  
@@ -98,7 +94,7 @@ const routes: Routes = [
 export class AppRoutingModule { };
 export const routingComponents =[ HomeComponent,LoginComponent,SignupComponent,ServicesComponent, CustomerdashboardComponent, AboutusComponent, CustomerprofileComponent,
                                   CustomerHomeComponent, OrderComponent, ScheduledOrderComponent, MyordersComponent, LeaderboardComponent, EditprofileComponent,
-                                  WasherdashboardComponent,WasherprofileComponent,WasherEditProfileComponent,WashrequestsComponent,WasherOrdersComponent,WasherMyOrdersComponent,
+                                  WasherdashboardComponent,WasherprofileComponent,WasherEditProfileComponent,WashrequestsComponent,WasherMyOrdersComponent,
                                   WasherScheduledOrdersComponent, WasherHomeComponent, AdminDashboardComponent, AdminHomeComponent, PlansManagementComponent, CreatPlanComponent,
                                   EditPlanComponent,AddonManagementComponent,CreateAddonComponent,EditAddonComponent,WasherApprovalComponent, CarsManagementComponent, CreateCarComponent,
                                   EditCarComponent, AdminLoginComponent];

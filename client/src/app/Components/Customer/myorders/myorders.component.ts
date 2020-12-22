@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { MyorderService } from 'src/app/Services/Customer/myorder/myorder.service';
 import { OrderService } from 'src/app/Services/Customer/order/order.service';
-import {paypalClientId} from './config';
+import { paypalClientId } from './config';
 import { FormsModule } from '@angular/forms';
 
 declare let paypal : any;
@@ -96,7 +96,7 @@ export class MyordersComponent implements OnInit, AfterViewChecked {
   paypalConfig ={
     env :'sandbox',
     client :{
-      sandbox : 'AYAFAQWon6_Na1vnDJ53vaiToeowOhO7y05s273owMfQq2FnXhIpxg75men_sX-2jcejsQU324zu_yDm'
+      sandbox :  paypalClientId
     },
     commit: true,
     payment :(data, actions) =>{

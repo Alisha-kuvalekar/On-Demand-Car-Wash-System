@@ -16,7 +16,7 @@ describe("Washer Auth API", ()=> {
     describe("POST /signup", ()=> {
         it("it should signup a new washer", (done)=> {
             const signupcredentials ={
-                email : "abcd@yahoo.in",
+                email : "abcde@yahoo.in",
                 password : "abc1234567"
             }
             chai.request(server)
@@ -24,7 +24,7 @@ describe("Washer Auth API", ()=> {
                 .send(signupcredentials)
                 .end((err,response)=>{
                     response.should.have.status(201);
-                    response.body.should.be.a('object');
+                    response.body.should.be.a('string');
                     done()
                 })
         })

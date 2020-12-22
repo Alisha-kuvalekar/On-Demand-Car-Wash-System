@@ -10,7 +10,8 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports :[RouterTestingModule],
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      schemas : [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

@@ -92,7 +92,7 @@ describe("ADMIN washer approval API", ()=> {
 
     describe('PUT /washers',()=> {
         it("it should update the washers approved status", (done) => {
-            const id = '5fdba7bd3e1d233960b92464'
+            const id = '5fdbc09d3e1d233960b92476'
             chai.request(server)
                 .put(`/washer/${id}`)
                 .set({"Authorization" : resjwtToken})
@@ -103,7 +103,7 @@ describe("ADMIN washer approval API", ()=> {
                 })
         })
         it("it should not update the washers approved status", (done) => {
-            const id = '5fdba7bd3e1d233960b92464'
+            const id = '5fdbc09d3e1d233960b92476'
             chai.request(server)
                 .put(`/washer/${id}`)
                 .end((err,response)=> {
@@ -121,7 +121,7 @@ describe("ADMIN washer approval API", ()=> {
 
     describe('DELETE /washers',()=> {
         it("it should delete the washer", (done) => {
-            const id = '5fdba7bd3e1d233960b92464'
+            const id = '5fdbc09d3e1d233960b92476'
             chai.request(server)
                 .delete(`/washer/${id}`)
                 .set({"Authorization" : resjwtToken})
@@ -132,7 +132,7 @@ describe("ADMIN washer approval API", ()=> {
                 })
         })
         it("it should not delete the washer", (done) => {
-            const id = '5fdba7bd3e1d233960b92464'
+            const id = '5fdbc09d3e1d233960b92476'
             chai.request(server)
                 .delete(`/washer/${id}`)
                 .end((err,response)=> {

@@ -15,7 +15,7 @@ const router = Router();
  *      '401' :
  *        description: Error occured
  */
-router.get('/findWashers',  requireAuth , function(req,res){
+router.get('/findWashers',  requireAuth ,  function(req,res){
     washerDetails.find({}, function(err, result){
         if(err){
             console.log(err)

@@ -10,7 +10,8 @@ describe('LeaderboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports :[RouterTestingModule],
-      declarations: [ LeaderboardComponent ]
+      declarations: [ LeaderboardComponent ],
+      schemas :[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
