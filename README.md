@@ -32,7 +32,7 @@ Unit testing of the services is done using [Mocha](https://mochajs.org/) and [Ch
 Run the following command to run the tests.
 
 ```
-npm run test
+npm test
 ```
 
   
