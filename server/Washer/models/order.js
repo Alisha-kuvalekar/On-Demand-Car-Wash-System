@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { isMobilePhone} = require('validator');
 
 //Connecting to orders database
-const dbURI="mongodb+srv://Washer:123wash@cluster0.gulvu.mongodb.net/orders?retryWrites=true&w=majority";
+const dbURI="<mongo_connection_url>";
 const orderConn =mongoose.createConnection( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 const orderSchema = new mongoose.Schema({
