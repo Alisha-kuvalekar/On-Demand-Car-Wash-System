@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 //Connect to admin db to read data
-const admin="mongodb+srv://Customer:123cust@cluster0.gulvu.mongodb.net/superAdmin?retryWrites=true&w=majority";
+const admin="<mongodb_connection_url>";
 const conn = mongoose.createConnection( admin,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 //Connect to washers db to read details : to find nearby washers
-const washer="mongodb+srv://Customer:123cust@cluster0.gulvu.mongodb.net/washers?retryWrites=true&w=majority";
+const washer="<mongodb_connection_url>";
 const washerconn = mongoose.createConnection( washer,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 
