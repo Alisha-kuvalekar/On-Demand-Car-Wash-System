@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 
 //connecting to the washers database with admin's credentials
-const dbURI = 'mongodb+srv://admin:admin012345@cluster0.gulvu.mongodb.net/washers?retryWrites=true&w=majority';
+const dbURI = '<mongodb_connection_url>';
 const conn= mongoose.createConnection( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,useFindAndModify : false});
 
 //creating a washers schema 
