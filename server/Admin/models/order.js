@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 //connecting to the customers database with admin's credentials
-const dbURI = 'mongodb+srv://admin:admin012345@cluster0.gulvu.mongodb.net/orders?retryWrites=true&w=majority';
+const dbURI = '<mongodb_connection_url>';
 const conn= mongoose.createConnection( dbURI,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,useFindAndModify : false});
 
 
